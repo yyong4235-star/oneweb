@@ -381,7 +381,7 @@ function renderHome(data) {
         </aside>
       </div>
     </section>
-    <section class="section">
+    <section class="section home-solutions">
       <div class="section-inner">
         <div class="section-head">
           <div>

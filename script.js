@@ -501,8 +501,14 @@ function renderContactBand(data) {
             <p>${data.home.bandText}</p>
           </div>
           <div class="hero-actions">
-            <a class="primary-btn" href="mailto:${company.email}">${data.cta.email}</a>
-            <a class="secondary-btn" href="tel:${company.phone}">${data.cta.call}</a>
+            <div class="band-contact-links">
+              <a href="tel:${company.phone}">${company.phone}</a>
+              <a href="mailto:${company.email}">${company.email}</a>
+            </div>
+            <div class="band-actions">
+              <a class="primary-btn" href="mailto:${company.email}">${data.cta.email}</a>
+              <a class="secondary-btn" href="tel:${company.phone}">${data.cta.call}</a>
+            </div>
           </div>
         </div>
       </div>

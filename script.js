@@ -496,6 +496,11 @@ function renderContactBand(data) {
     <section class="section home-contact-flow">
       <div class="section-inner">
         <div class="contact-band">
+          <div class="prism-layer" aria-hidden="true">
+            <span class="prism-core"></span>
+            <span class="prism-ray prism-ray-a"></span>
+            <span class="prism-ray prism-ray-b"></span>
+          </div>
           <div>
             <h2>${data.home.bandTitle}</h2>
             <p>${data.home.bandText}</p>

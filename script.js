@@ -500,16 +500,6 @@ function renderContactBand(data) {
             <h2>${data.home.bandTitle}</h2>
             <p>${data.home.bandText}</p>
           </div>
-          <div class="hero-actions">
-            <div class="band-contact-links">
-              <a href="tel:${company.phoneHref}">${company.phone}</a>
-              <a href="mailto:${company.email}">${company.email}</a>
-            </div>
-            <div class="band-actions">
-              <a class="primary-btn" href="mailto:${company.email}">${data.cta.email}</a>
-              <a class="secondary-btn" href="tel:${company.phoneHref}">${data.cta.call}</a>
-            </div>
-          </div>
         </div>
       </div>
     </section>

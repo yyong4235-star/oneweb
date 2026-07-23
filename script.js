@@ -493,7 +493,7 @@ function renderContact(data) {
 
 function renderContactBand(data) {
   return `
-    <section class="section">
+    <section class="section home-contact-flow">
       <div class="section-inner">
         <div class="contact-band">
           <div>

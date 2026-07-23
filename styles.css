@@ -194,7 +194,7 @@ a {
   position: absolute;
   inset: auto 0 0;
   height: 160px;
-  background: linear-gradient(0deg, rgba(247, 250, 252, 1), rgba(247, 250, 252, 0));
+  background: linear-gradient(0deg, rgba(5, 13, 29, 0.98), rgba(5, 13, 29, 0));
   pointer-events: none;
 }
 
@@ -303,8 +303,11 @@ a {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(5, 13, 29, 0.82), rgba(12, 55, 82, 0.54) 46%, rgba(20, 142, 156, 0.28)),
+    linear-gradient(180deg, rgba(5, 13, 29, 0.96) 0%, rgba(7, 22, 43, 0.78) 18%, rgba(12, 55, 82, 0.58) 58%, rgba(8, 30, 45, 0.92) 100%),
     url("./assets/home-solutions-bg.png") center / cover;
+  box-shadow:
+    inset 0 90px 120px rgba(5, 13, 29, 0.72),
+    inset 0 -110px 140px rgba(8, 30, 45, 0.86);
 }
 
 .home-solutions::before {
@@ -358,6 +361,12 @@ a {
 .home-solutions .tag {
   background: rgba(73, 178, 124, 0.2);
   color: #b7f2cd;
+}
+
+.home-contact-flow {
+  background:
+    linear-gradient(180deg, rgba(8, 30, 45, 1) 0%, rgba(13, 53, 69, 0.92) 34%, rgba(238, 246, 248, 1) 100%);
+  padding-top: clamp(42px, 6vw, 76px);
 }
 
 .section-inner {
@@ -538,8 +547,9 @@ a {
   padding: clamp(26px, 4vw, 40px);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(26, 168, 184, 0.92), rgba(73, 178, 124, 0.9)),
+    linear-gradient(135deg, rgba(11, 84, 111, 0.92), rgba(25, 152, 150, 0.82), rgba(75, 180, 126, 0.76)),
     url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80") center / cover;
+  box-shadow: 0 24px 70px rgba(5, 13, 29, 0.22);
   color: #fff;
 }
 

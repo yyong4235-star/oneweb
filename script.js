@@ -397,7 +397,8 @@ function renderHome(data) {
       <span class="speed-line speed-line-a"></span>
       <span class="speed-line speed-line-b"></span>
       <span class="speed-line speed-line-c"></span>
-      <span class="speed-glow"></span>
+      <span class="speed-line speed-line-d"></span>
+      <span class="speed-line speed-line-e"></span>
     </div>
     ${renderContactBand(data)}
   `;

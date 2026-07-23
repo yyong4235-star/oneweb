@@ -393,6 +393,12 @@ function renderHome(data) {
         <div class="grid">${data.home.highlights.map(card).join("")}</div>
       </div>
     </section>
+    <div class="hyperspeed-transition" aria-hidden="true">
+      <span class="speed-line speed-line-a"></span>
+      <span class="speed-line speed-line-b"></span>
+      <span class="speed-line speed-line-c"></span>
+      <span class="speed-glow"></span>
+    </div>
     ${renderContactBand(data)}
   `;
 }

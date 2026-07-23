@@ -366,7 +366,117 @@ a {
 .home-contact-flow {
   background:
     linear-gradient(180deg, rgba(8, 30, 45, 1) 0%, rgba(13, 53, 69, 0.92) 34%, rgba(238, 246, 248, 1) 100%);
-  padding-top: clamp(42px, 6vw, 76px);
+  padding-top: clamp(28px, 4vw, 48px);
+}
+
+.hyperspeed-transition {
+  position: relative;
+  height: clamp(128px, 18vw, 220px);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(8, 30, 45, 0.98), rgba(5, 13, 29, 0.96) 48%, rgba(8, 30, 45, 1)),
+    radial-gradient(ellipse at center, rgba(73, 220, 255, 0.2), transparent 58%);
+  perspective: 520px;
+}
+
+.hyperspeed-transition::before {
+  content: "";
+  position: absolute;
+  inset: -18% -10%;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 7.5%, rgba(126, 231, 255, 0.2) 7.7%, transparent 8.2%),
+    linear-gradient(90deg, transparent, rgba(120, 96, 255, 0.22), transparent);
+  opacity: 0.5;
+  transform: rotateX(68deg) translateY(24px) scaleX(1.2);
+  transform-origin: center bottom;
+  animation: hyperspeed-grid 3.6s linear infinite;
+}
+
+.hyperspeed-transition::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 30, 45, 0.92), transparent 26%, transparent 74%, rgba(8, 30, 45, 0.96)),
+    radial-gradient(circle at 50% 50%, transparent 0 8%, rgba(5, 13, 29, 0.34) 42%, rgba(5, 13, 29, 0.74) 100%);
+  pointer-events: none;
+}
+
+.speed-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(760px, 74vw);
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(121, 238, 255, 0.98), rgba(169, 111, 255, 0.78), transparent);
+  filter: blur(0.3px) drop-shadow(0 0 12px rgba(91, 228, 255, 0.82));
+  opacity: 0;
+  transform-origin: left center;
+  animation: hyperspeed-line 2.3s ease-in-out infinite;
+}
+
+.speed-line-a {
+  transform: translate(-50%, -50%) rotate(-8deg) scaleX(0.35);
+}
+
+.speed-line-b {
+  animation-delay: -0.8s;
+  background: linear-gradient(90deg, transparent, rgba(82, 255, 184, 0.9), rgba(94, 179, 255, 0.82), transparent);
+  transform: translate(-50%, -50%) rotate(6deg) scaleX(0.28);
+}
+
+.speed-line-c {
+  animation-delay: -1.45s;
+  top: 57%;
+  transform: translate(-50%, -50%) rotate(0deg) scaleX(0.22);
+}
+
+.speed-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #e7fbff;
+  box-shadow:
+    0 0 28px rgba(126, 238, 255, 0.95),
+    0 0 90px rgba(149, 105, 255, 0.62);
+  animation: hyperspeed-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes hyperspeed-grid {
+  to {
+    background-position: 82px 0, 0 0;
+  }
+}
+
+@keyframes hyperspeed-line {
+  0% {
+    opacity: 0;
+    translate: -42% 0;
+    scale: 0.35 1;
+  }
+  28% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: 42% 0;
+    scale: 1.16 1;
+  }
+}
+
+@keyframes hyperspeed-pulse {
+  0%, 100% {
+    opacity: 0.22;
+    transform: translate(-50%, -50%) scale(0.82);
+  }
+  50% {
+    opacity: 0.86;
+    transform: translate(-50%, -50%) scale(1.18);
+  }
 }
 
 .section-inner {
@@ -462,6 +572,12 @@ a {
   .primary-btn::after,
   .prism-core,
   .prism-ray {
+    animation: none;
+  }
+
+  .hyperspeed-transition::before,
+  .speed-line,
+  .speed-glow {
     animation: none;
   }
 }

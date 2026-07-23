@@ -4,7 +4,8 @@ const company = {
   shortName: "DJ ELECTRONICS CO., LTD",
   foundedYear: "2019",
   address: "Số nhà 083, phố Tuệ Tĩnh, tổ 10 Kim Tân, Phường Lào Cai, Tỉnh Lào Cai, Việt Nam",
-  phone: "0963162922",
+  phone: "+84 963 162 922",
+  phoneHref: "+84963162922",
   email: "congtytnhhthietbidientudj@gmail.com",
 };
 
@@ -481,13 +482,12 @@ function renderContact(data) {
       <div class="section-inner">
         ${sectionHead(data.contact)}
         <div class="contact-details">
-          <div class="detail-card"><span>${data.contact.details.phone}</span><a href="tel:${company.phone}">${company.phone}</a></div>
+          <div class="detail-card"><span>${data.contact.details.phone}</span><a href="tel:${company.phoneHref}">${company.phone}</a></div>
           <div class="detail-card"><span>${data.contact.details.email}</span><a href="mailto:${company.email}">${company.email}</a></div>
-          <div class="detail-card"><span>${data.contact.details.address}</span><strong>${company.address}</strong></div>
+          <div class="detail-card"><span>${data.contact.details.address}</span><strong>${company.legalNameVi}</strong><strong>${company.legalNameEn}</strong><strong>${company.address}</strong></div>
         </div>
       </div>
     </section>
-    ${renderContactBand(data)}
   `;
 }
 
@@ -502,12 +502,12 @@ function renderContactBand(data) {
           </div>
           <div class="hero-actions">
             <div class="band-contact-links">
-              <a href="tel:${company.phone}">${company.phone}</a>
+              <a href="tel:${company.phoneHref}">${company.phone}</a>
               <a href="mailto:${company.email}">${company.email}</a>
             </div>
             <div class="band-actions">
               <a class="primary-btn" href="mailto:${company.email}">${data.cta.email}</a>
-              <a class="secondary-btn" href="tel:${company.phone}">${data.cta.call}</a>
+              <a class="secondary-btn" href="tel:${company.phoneHref}">${data.cta.call}</a>
             </div>
           </div>
         </div>

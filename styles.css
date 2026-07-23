@@ -554,6 +554,7 @@ a {
   margin-top: 8px;
   font-size: 1rem;
   font-weight: 850;
+  color: var(--ink);
 }
 
 .site-footer {

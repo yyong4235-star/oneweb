@@ -496,7 +496,7 @@ function renderAbout(data) {
           <p>${data.about.intro}</p>
           <p>${data.about.body}</p>
         </div>
-        <div class="split-media" style="background-image:url('https://images.unsplash.com/photo-1581092335878-2d9ff86ca2bf?auto=format&fit=crop&w=1200&q=82')"></div>
+        <div class="split-media" style="background-image:url('./assets/brand/about-main.jpg')"></div>
       </div>
     </section>
     <section class="section alt">

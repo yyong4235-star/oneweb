@@ -11,6 +11,12 @@ const company = {
 
 const routes = ["home", "products", "manufacturing", "oem", "about", "contact"];
 
+const productImages = [
+  "./assets/products/product-01.jpg",
+  "./assets/products/product-02.jpg",
+  "./assets/products/product-03.jpg",
+];
+
 const copy = {
   vi: {
     metaTitle: "DJ ELECTRONICS CO., LTD | Sản xuất điện tử năng lượng mới tại Việt Nam",
@@ -333,11 +339,13 @@ function t() {
 }
 
 function card(item, index) {
+  const image = productImages[index % productImages.length];
   const tags = [...(item.tags || []), ...(item.applications || []), ...(item.capabilities || [])]
     .map((tag) => `<span class="tag">${tag}</span>`)
     .join("");
   return `
     <article class="card">
+      <img class="card-image" src="${image}" alt="${item.title || item.name || item.mode}" loading="lazy" />
       <span class="icon">${String(index + 1).padStart(2, "0")}</span>
       <h3>${item.title || item.name || item.mode}</h3>
       <p>${item.text || item.description}</p>

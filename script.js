@@ -20,6 +20,15 @@ const productImages = [
   "./assets/products/product-06.jpg",
 ];
 
+const manufacturingImages = [
+  "./assets/manufacturing/manufacturing-01.jpg",
+  "./assets/manufacturing/manufacturing-02.jpg",
+  "./assets/manufacturing/manufacturing-03.jpg",
+  "./assets/manufacturing/manufacturing-04.jpg",
+  "./assets/manufacturing/manufacturing-05.jpg",
+  "./assets/manufacturing/manufacturing-06.jpg",
+];
+
 const copy = {
   vi: {
     metaTitle: "DJ ELECTRONICS CO., LTD | Sản xuất điện tử năng lượng mới tại Việt Nam",
@@ -341,8 +350,8 @@ function t() {
   return copy[state.lang];
 }
 
-function card(item, index) {
-  const image = productImages[index % productImages.length];
+function card(item, index, images = productImages) {
+  const image = images[index % images.length];
   const tags = [...(item.tags || []), ...(item.applications || []), ...(item.capabilities || [])]
     .map((tag) => `<span class="tag">${tag}</span>`)
     .join("");
@@ -443,7 +452,7 @@ function renderManufacturing(data) {
     <section class="section alt">
       <div class="section-inner">
         ${sectionHead(data.manufacturing)}
-        <div class="grid">${data.manufacturing.capabilities.map(card).join("")}</div>
+        <div class="grid">${data.manufacturing.capabilities.map((item, index) => card(item, index, manufacturingImages)).join("")}</div>
       </div>
     </section>
   `;

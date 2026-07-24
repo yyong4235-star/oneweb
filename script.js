@@ -480,13 +480,6 @@ function renderHome(data) {
         <div class="grid">${data.home.highlights.map((item, index) => card(item, index, homeImages)).join("")}</div>
       </div>
     </section>
-    <div class="hyperspeed-transition" aria-hidden="true">
-      <span class="speed-line speed-line-a"></span>
-      <span class="speed-line speed-line-b"></span>
-      <span class="speed-line speed-line-c"></span>
-      <span class="speed-line speed-line-d"></span>
-      <span class="speed-line speed-line-e"></span>
-    </div>
     ${renderContactBand(data)}
   `;
 }
@@ -642,11 +635,12 @@ function renderContactBand(data) {
 function render() {
   const data = t();
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
+  document.body.dataset.currentRoute = state.route;
   document.title = data.metaTitle;
   document.querySelector(".header-cta").textContent = data.cta.contact;
   document.querySelector("#site-footer").innerHTML = renderFooter(data);
 
-  document.querySelectorAll("[data-route]").forEach((link) => {
+  document.querySelectorAll(".main-nav [data-route]").forEach((link) => {
     const route = link.dataset.route;
     link.textContent = data.nav[route];
     link.setAttribute("aria-current", route === state.route ? "page" : "false");
@@ -684,11 +678,24 @@ document.querySelectorAll("[data-lang]").forEach((button) => {
   });
 });
 
+document.querySelectorAll(".main-nav a").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.querySelector(".site-header").dataset.open = "false";
+    document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
+  });
+});
+
 document.querySelector(".menu-toggle").addEventListener("click", () => {
   const header = document.querySelector(".site-header");
   const isOpen = header.dataset.open === "true";
   header.dataset.open = String(!isOpen);
   document.querySelector(".menu-toggle").setAttribute("aria-expanded", String(!isOpen));
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  document.querySelector(".site-header").dataset.open = "false";
+  document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
 });
 
 window.addEventListener("scroll", () => {

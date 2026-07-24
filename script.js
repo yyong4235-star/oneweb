@@ -35,6 +35,12 @@ const oemImages = [
   "./assets/oem/oem-03.jpg",
 ];
 
+const homeImages = [
+  "./assets/home/home-01.jpg",
+  "./assets/home/home-02.jpg",
+  "./assets/home/home-03.jpg",
+];
+
 const copy = {
   vi: {
     metaTitle: "DJ ELECTRONICS CO., LTD | Sản xuất điện tử năng lượng mới tại Việt Nam",
@@ -417,7 +423,7 @@ function renderHome(data) {
           </div>
           <p>${data.home.sectionsIntro}</p>
         </div>
-        <div class="grid">${data.home.highlights.map(card).join("")}</div>
+        <div class="grid">${data.home.highlights.map((item, index) => card(item, index, homeImages)).join("")}</div>
       </div>
     </section>
     <div class="hyperspeed-transition" aria-hidden="true">

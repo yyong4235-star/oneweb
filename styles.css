@@ -68,13 +68,19 @@ a {
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 48px;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--cyan), var(--green));
-  color: #fff;
-  font-weight: 900;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 24px rgba(8, 26, 43, 0.1);
   letter-spacing: 0;
+}
+
+.brand-mark img {
+  display: block;
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
 }
 
 .brand-copy {

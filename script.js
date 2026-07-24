@@ -29,6 +29,12 @@ const manufacturingImages = [
   "./assets/manufacturing/manufacturing-06.jpg",
 ];
 
+const oemImages = [
+  "./assets/oem/oem-01.jpg",
+  "./assets/oem/oem-02.jpg",
+  "./assets/oem/oem-03.jpg",
+];
+
 const copy = {
   vi: {
     metaTitle: "DJ ELECTRONICS CO., LTD | Sản xuất điện tử năng lượng mới tại Việt Nam",
@@ -463,7 +469,7 @@ function renderOem(data) {
     <section class="section dark">
       <div class="section-inner">
         ${sectionHead(data.oem)}
-        <div class="grid">${data.oem.modes.map(card).join("")}</div>
+        <div class="grid">${data.oem.modes.map((item, index) => card(item, index, oemImages)).join("")}</div>
       </div>
     </section>
     <section class="section">

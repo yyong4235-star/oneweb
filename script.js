@@ -12,9 +12,12 @@ const company = {
 const routes = ["home", "products", "manufacturing", "oem", "about", "contact"];
 
 const productImages = [
-  "./assets/products/product-02.jpg",
   "./assets/products/product-01.jpg",
+  "./assets/products/product-02.jpg",
   "./assets/products/product-03.jpg",
+  "./assets/products/product-04.jpg",
+  "./assets/products/product-05.jpg",
+  "./assets/products/product-06.jpg",
 ];
 
 const copy = {

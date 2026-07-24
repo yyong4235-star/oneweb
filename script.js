@@ -357,7 +357,8 @@ function t() {
 }
 
 function card(item, index, images = productImages) {
-  const image = images[index % images.length];
+  const imageSet = Array.isArray(images) && typeof images[0] === "string" ? images : productImages;
+  const image = imageSet[index % imageSet.length];
   const tags = [...(item.tags || []), ...(item.applications || []), ...(item.capabilities || [])]
     .map((tag) => `<span class="tag">${tag}</span>`)
     .join("");

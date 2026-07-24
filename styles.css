@@ -190,8 +190,9 @@ a {
   align-items: center;
   padding: clamp(62px, 8vw, 104px) clamp(18px, 4vw, 56px) 54px;
   background:
-    linear-gradient(90deg, rgba(7, 19, 31, 0.96) 0%, rgba(7, 19, 31, 0.84) 45%, rgba(7, 19, 31, 0.42) 100%),
-    url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=82") center / cover;
+    radial-gradient(circle at 76% 22%, rgba(74, 198, 165, 0.22), transparent 34%),
+    linear-gradient(90deg, rgba(7, 19, 31, 0.97) 0%, rgba(7, 19, 31, 0.86) 48%, rgba(7, 19, 31, 0.54) 100%),
+    url("./assets/brand/hero-logo-bg.png") center / cover;
   color: #fff;
 }
 

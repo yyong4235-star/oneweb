@@ -20,18 +20,18 @@
     "intro": "DJ ELECTRONICS CO., LTD cung cấp bộ sạc nhanh, hệ thống quản lý pin BMS, bảng bảo vệ pin lithium, gia công PCB/SMT và lắp ráp PACK cho khách hàng sản xuất điện tử, xe điện và lưu trữ năng lượng.",
     "panelTitle": "Năng lực trọng tâm",
     "metrics": [
-      [
-        "OEM / ODM",
-        "Hỗ trợ dán nhãn, chỉnh sửa phương án và phát triển theo thông số riêng"
-      ],
-      [
-        "SMT + PACK",
-        "Tích hợp gia công mạch, hàn linh kiện, lắp ráp pin và thành phẩm"
-      ],
-      [
-        "Giao hàng tại Việt Nam",
-        "Phản hồi nhanh, thuận tiện cho doanh nghiệp nội địa và khách hàng xuyên biên giới"
-      ]
+      {
+        "label": "OEM / ODM",
+        "text": "Hỗ trợ dán nhãn, chỉnh sửa phương án và phát triển theo thông số riêng"
+      },
+      {
+        "label": "SMT + PACK",
+        "text": "Tích hợp gia công mạch, hàn linh kiện, lắp ráp pin và thành phẩm"
+      },
+      {
+        "label": "Giao hàng tại Việt Nam",
+        "text": "Phản hồi nhanh, thuận tiện cho doanh nghiệp nội địa và khách hàng xuyên biên giới"
+      }
     ],
     "sectionsTitle": "Giải pháp phần cứng cho khách hàng mua hàng và chuỗi cung ứng",
     "sectionsIntro": "Website tập trung vào các hạng mục mà khách hàng B2B cần đánh giá trước khi hợp tác: sản phẩm, năng lực sản xuất, phương thức tùy chỉnh và kênh liên hệ rõ ràng.",
@@ -220,22 +220,22 @@
     ],
     "processTitle": "Quy trình làm việc đề xuất",
     "process": [
-      [
-        "Trao đổi yêu cầu",
-        "Khách hàng gửi thông số, mẫu, bản vẽ hoặc tình huống sử dụng."
-      ],
-      [
-        "Đánh giá phương án",
-        "DJ xác định nên dùng OEM, ODM hay phát triển tùy chỉnh."
-      ],
-      [
-        "Xác nhận mẫu",
-        "Hai bên thống nhất cấu trúc, thông số, vật liệu và yêu cầu đóng gói."
-      ],
-      [
-        "Sản xuất và giao hàng",
-        "Tổ chức sản xuất, kiểm soát chất lượng và giao hàng theo thỏa thuận."
-      ]
+      {
+        "title": "Trao đổi yêu cầu",
+        "text": "Khách hàng gửi thông số, mẫu, bản vẽ hoặc tình huống sử dụng."
+      },
+      {
+        "title": "Đánh giá phương án",
+        "text": "DJ xác định nên dùng OEM, ODM hay phát triển tùy chỉnh."
+      },
+      {
+        "title": "Xác nhận mẫu",
+        "text": "Hai bên thống nhất cấu trúc, thông số, vật liệu và yêu cầu đóng gói."
+      },
+      {
+        "title": "Sản xuất và giao hàng",
+        "text": "Tổ chức sản xuất, kiểm soát chất lượng và giao hàng theo thỏa thuận."
+      }
     ]
   },
   "about": {
@@ -244,26 +244,26 @@
     "intro": "DJ ELECTRONICS CO., LTD được thành lập năm 2019, tập trung vào sản phẩm nguồn sạc, quản lý pin, gia công mạch điện tử và lắp ráp PACK.",
     "body": "Công ty tích hợp nghiên cứu kỹ thuật, gia công bảng mạch, lắp ráp pin PACK và sản xuất thành phẩm. Với lợi thế nhà máy tại Việt Nam và kinh nghiệm trong phần cứng điện tử năng lượng mới, DJ cung cấp sản phẩm và dịch vụ sản xuất ổn định, có tính cạnh tranh cho khách hàng trong ngành năng lượng mới và điện tử.",
     "facts": [
-      [
-        "Tên pháp lý",
-        "CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ"
-      ],
-      [
-        "Tên tiếng Anh",
-        "DJ ELECTRONIC EQUIPMENT COMPANY LIMITED"
-      ],
-      [
-        "Tên viết tắt",
-        "DJ ELECTRONICS CO., LTD"
-      ],
-      [
-        "Thành lập",
-        "2019"
-      ],
-      [
-        "Địa chỉ",
-        "Số nhà 083, phố Tuệ Tĩnh, tổ 10 Kim Tân, Phường Lào Cai, Tỉnh Lào Cai, Việt Nam"
-      ]
+      {
+        "label": "Tên pháp lý",
+        "value": "CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ"
+      },
+      {
+        "label": "Tên tiếng Anh",
+        "value": "DJ ELECTRONIC EQUIPMENT COMPANY LIMITED"
+      },
+      {
+        "label": "Tên viết tắt",
+        "value": "DJ ELECTRONICS CO., LTD"
+      },
+      {
+        "label": "Thành lập",
+        "value": "2019"
+      },
+      {
+        "label": "Địa chỉ",
+        "value": "Số nhà 083, phố Tuệ Tĩnh, tổ 10 Kim Tân, Phường Lào Cai, Tỉnh Lào Cai, Việt Nam"
+      }
     ]
   },
   "contact": {

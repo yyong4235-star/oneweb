@@ -20,18 +20,18 @@
     "intro": "DJ ELECTRONICS CO., LTD 为电子制造、轻型电动车和储能客户提供快充充电器、BMS 管理系统、锂电池保护板、PCB/SMT 加工和 PACK 组装服务。",
     "panelTitle": "核心能力",
     "metrics": [
-      [
-        "OEM / ODM",
-        "支持贴牌、方案修改和按客户参数开发"
-      ],
-      [
-        "SMT + PACK",
-        "整合电路板贴片、元器件焊接、电池封装和成品组装"
-      ],
-      [
-        "越南本地交付",
-        "便于服务越南本地企业与跨境客户"
-      ]
+      {
+        "label": "OEM / ODM",
+        "text": "支持贴牌、方案修改和按客户参数开发"
+      },
+      {
+        "label": "SMT + PACK",
+        "text": "整合电路板贴片、元器件焊接、电池封装和成品组装"
+      },
+      {
+        "label": "越南本地交付",
+        "text": "便于服务越南本地企业与跨境客户"
+      }
     ],
     "sectionsTitle": "为采购与供应链团队提供的硬件配套方案",
     "sectionsIntro": "网站重点呈现 B2B 客户合作前需要评估的信息：产品范围、生产能力、定制方式和清晰的联系渠道。",
@@ -220,22 +220,22 @@
     ],
     "processTitle": "建议合作流程",
     "process": [
-      [
-        "需求沟通",
-        "客户发送参数、样品、图纸或使用场景。"
-      ],
-      [
-        "方案评估",
-        "DJ 判断适合 OEM、ODM 还是专项定制开发。"
-      ],
-      [
-        "样品确认",
-        "双方确认结构、参数、材料和包装要求。"
-      ],
-      [
-        "生产交付",
-        "按约定组织生产、质量控制和交付。"
-      ]
+      {
+        "title": "需求沟通",
+        "text": "客户发送参数、样品、图纸或使用场景。"
+      },
+      {
+        "title": "方案评估",
+        "text": "DJ 判断适合 OEM、ODM 还是专项定制开发。"
+      },
+      {
+        "title": "样品确认",
+        "text": "双方确认结构、参数、材料和包装要求。"
+      },
+      {
+        "title": "生产交付",
+        "text": "按约定组织生产、质量控制和交付。"
+      }
     ]
   },
   "about": {
@@ -244,26 +244,26 @@
     "intro": "DJ ELECTRONICS CO., LTD 成立于 2019 年，专注充电电源、电池管理、电路板加工和 PACK 组装。",
     "body": "公司集技术研发、电路板加工、电池 PACK 组装和成品生产于一体。依托越南本地工厂区位优势和新能源电子硬件经验，DJ 为新能源和电子制造客户提供稳定、有竞争力的产品及生产服务。",
     "facts": [
-      [
-        "法定名称",
-        "CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ"
-      ],
-      [
-        "英文全称",
-        "DJ ELECTRONIC EQUIPMENT COMPANY LIMITED"
-      ],
-      [
-        "英文简写",
-        "DJ ELECTRONICS CO., LTD"
-      ],
-      [
-        "成立时间",
-        "2019"
-      ],
-      [
-        "地址",
-        "Số nhà 083, phố Tuệ Tĩnh, tổ 10 Kim Tân, Phường Lào Cai, Tỉnh Lào Cai, Việt Nam"
-      ]
+      {
+        "label": "法定名称",
+        "value": "CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ"
+      },
+      {
+        "label": "英文全称",
+        "value": "DJ ELECTRONIC EQUIPMENT COMPANY LIMITED"
+      },
+      {
+        "label": "英文简写",
+        "value": "DJ ELECTRONICS CO., LTD"
+      },
+      {
+        "label": "成立时间",
+        "value": "2019"
+      },
+      {
+        "label": "地址",
+        "value": "Số nhà 083, phố Tuệ Tĩnh, tổ 10 Kim Tân, Phường Lào Cai, Tỉnh Lào Cai, Việt Nam"
+      }
     ]
   },
   "contact": {

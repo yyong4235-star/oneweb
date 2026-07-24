@@ -49,6 +49,10 @@ function getAsset(key) {
   return siteConfig?.assets?.[key] || "";
 }
 
+function pairValues(item, firstKey, secondKey) {
+  return Array.isArray(item) ? item : [item[firstKey], item[secondKey]];
+}
+
 function t() {
   return copy?.[state.lang];
 }
@@ -101,7 +105,10 @@ function renderHome(data) {
         <aside class="hero-panel">
           <h2>${data.home.panelTitle}</h2>
           <div class="metric-grid">
-            ${data.home.metrics.map(([label, text]) => `<div class="metric"><strong>${label}</strong><span>${text}</span></div>`).join("")}
+            ${data.home.metrics.map((item) => {
+              const [label, text] = pairValues(item, "label", "text");
+              return `<div class="metric"><strong>${label}</strong><span>${text}</span></div>`;
+            }).join("")}
           </div>
         </aside>
       </div>
@@ -170,7 +177,10 @@ function renderOem(data) {
         <div class="split-copy">
           <h2>${data.oem.processTitle}</h2>
           <div class="process-list">
-            ${data.oem.process.map(([title, text]) => `<div class="process-item"><div><h3>${title}</h3><p>${text}</p></div></div>`).join("")}
+            ${data.oem.process.map((item) => {
+              const [title, text] = pairValues(item, "title", "text");
+              return `<div class="process-item"><div><h3>${title}</h3><p>${text}</p></div></div>`;
+            }).join("")}
           </div>
         </div>
       </div>
@@ -194,7 +204,10 @@ function renderAbout(data) {
     <section class="section alt">
       <div class="section-inner">
         <div class="contact-details">
-          ${data.about.facts.map(([label, value]) => `<div class="detail-card"><span>${label}</span><strong>${value}</strong></div>`).join("")}
+          ${data.about.facts.map((item) => {
+            const [label, value] = pairValues(item, "label", "value");
+            return `<div class="detail-card"><span>${label}</span><strong>${value}</strong></div>`;
+          }).join("")}
         </div>
       </div>
     </section>
@@ -232,7 +245,11 @@ function renderPrivacy() {
           <small>${policy.updated}</small>
         </div>
         <div class="privacy-content">
-          ${policy.sections.map(([title, text]) => `<article><h2>${title}</h2><p>${text}</p></article>`).join("")}
+          ${policy.sections.map((section) => {
+            const title = Array.isArray(section) ? section[0] : section.title;
+            const text = Array.isArray(section) ? section[1] : section.text;
+            return `<article><h2>${title}</h2><p>${text}</p></article>`;
+          }).join("")}
         </div>
       </div>
     </section>

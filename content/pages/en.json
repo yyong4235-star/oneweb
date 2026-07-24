@@ -20,18 +20,18 @@
     "intro": "DJ ELECTRONICS CO., LTD supplies fast chargers, battery management systems, lithium battery protection boards, PCB/SMT assembly and PACK assembly for electronics, light EV and energy storage customers.",
     "panelTitle": "Core capabilities",
     "metrics": [
-      [
-        "OEM / ODM",
-        "Brand labeling, solution adjustment and development to customer parameters"
-      ],
-      [
-        "SMT + PACK",
-        "Integrated PCB assembly, welding, battery packaging and finished product assembly"
-      ],
-      [
-        "Vietnam delivery",
-        "Fast response for local companies and cross-border customers"
-      ]
+      {
+        "label": "OEM / ODM",
+        "text": "Brand labeling, solution adjustment and development to customer parameters"
+      },
+      {
+        "label": "SMT + PACK",
+        "text": "Integrated PCB assembly, welding, battery packaging and finished product assembly"
+      },
+      {
+        "label": "Vietnam delivery",
+        "text": "Fast response for local companies and cross-border customers"
+      }
     ],
     "sectionsTitle": "Hardware solutions for purchasing and supply chain teams",
     "sectionsIntro": "The site focuses on what B2B buyers need to evaluate: product scope, production capability, customization options and clear contact channels.",
@@ -220,22 +220,22 @@
     ],
     "processTitle": "Suggested workflow",
     "process": [
-      [
-        "Requirement discussion",
-        "Customer sends specifications, samples, drawings or application scenarios."
-      ],
-      [
-        "Solution review",
-        "DJ identifies whether OEM, ODM or custom development fits best."
-      ],
-      [
-        "Sample confirmation",
-        "Both sides confirm structure, parameters, materials and packaging requirements."
-      ],
-      [
-        "Production and delivery",
-        "Production, quality control and delivery are arranged as agreed."
-      ]
+      {
+        "title": "Requirement discussion",
+        "text": "Customer sends specifications, samples, drawings or application scenarios."
+      },
+      {
+        "title": "Solution review",
+        "text": "DJ identifies whether OEM, ODM or custom development fits best."
+      },
+      {
+        "title": "Sample confirmation",
+        "text": "Both sides confirm structure, parameters, materials and packaging requirements."
+      },
+      {
+        "title": "Production and delivery",
+        "text": "Production, quality control and delivery are arranged as agreed."
+      }
     ]
   },
   "about": {
@@ -244,26 +244,26 @@
     "intro": "DJ ELECTRONICS CO., LTD was established in 2019 and focuses on charging power supplies, battery management, PCB assembly and PACK assembly.",
     "body": "The company integrates technical research, circuit board processing, battery PACK assembly and finished product manufacturing. With a Vietnam factory location and experience in new energy electronics hardware, DJ provides stable and competitive products and production services for new energy and electronics customers.",
     "facts": [
-      [
-        "Legal name",
-        "CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ"
-      ],
-      [
-        "English name",
-        "DJ ELECTRONIC EQUIPMENT COMPANY LIMITED"
-      ],
-      [
-        "Short name",
-        "DJ ELECTRONICS CO., LTD"
-      ],
-      [
-        "Founded",
-        "2019"
-      ],
-      [
-        "Address",
-        "Số nhà 083, phố Tuệ Tĩnh, tổ 10 Kim Tân, Phường Lào Cai, Tỉnh Lào Cai, Việt Nam"
-      ]
+      {
+        "label": "Legal name",
+        "value": "CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ"
+      },
+      {
+        "label": "English name",
+        "value": "DJ ELECTRONIC EQUIPMENT COMPANY LIMITED"
+      },
+      {
+        "label": "Short name",
+        "value": "DJ ELECTRONICS CO., LTD"
+      },
+      {
+        "label": "Founded",
+        "value": "2019"
+      },
+      {
+        "label": "Address",
+        "value": "Số nhà 083, phố Tuệ Tĩnh, tổ 10 Kim Tân, Phường Lào Cai, Tỉnh Lào Cai, Việt Nam"
+      }
     ]
   },
   "contact": {

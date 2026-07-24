@@ -9,7 +9,7 @@ const company = {
   email: "congtytnhhthietbidientudj@gmail.com",
 };
 
-const routes = ["home", "products", "manufacturing", "oem", "about", "contact"];
+const routes = ["home", "products", "manufacturing", "oem", "about", "contact", "privacy"];
 
 const productImages = [
   "./assets/products/product-01.jpg",
@@ -196,6 +196,8 @@ const copy = {
         email: "Email",
         address: "Địa chỉ",
       },
+      privacyLabel: "Chính sách quyền riêng tư",
+      privacyText: "Xem chính sách quyền riêng tư dùng cho website và ứng dụng BMS Protection Board Manager.",
     },
   },
   en: {
@@ -271,6 +273,8 @@ const copy = {
       title: "Send product requirements, specifications or OEM/ODM needs",
       intro: "Contact DJ directly by phone or email. Please include application industry, voltage / current parameters, estimated quantity and packaging requirements when available.",
       details: { phone: "Phone", email: "Email", address: "Address" },
+      privacyLabel: "Privacy Policy",
+      privacyText: "View the privacy policy for the website and BMS Protection Board Manager app.",
     },
   },
   zh: {
@@ -345,7 +349,57 @@ const copy = {
       title: "发送产品需求、参数或 OEM/ODM 合作需求",
       intro: "可通过电话或邮箱直接联系 DJ。建议在邮件中说明应用行业、电压 / 电流参数、预计数量和包装要求。",
       details: { phone: "电话", email: "电子邮箱", address: "地址" },
+      privacyLabel: "隐私政策",
+      privacyText: "查看官网和 BMS Protection Board Manager 应用使用的隐私政策。",
     },
+  },
+};
+
+const privacyPolicies = {
+  vi: {
+    title: "Chính sách quyền riêng tư",
+    subtitle: "Áp dụng cho website DJ ELECTRONICS và ứng dụng BMS Protection Board Manager.",
+    updated: "Cập nhật: 24/07/2026 | Hiệu lực: 24/07/2026",
+    sections: [
+      ["1. Nguyên tắc xử lý dữ liệu", "Ứng dụng được thiết kế để hoạt động cục bộ: kết nối thiết bị cục bộ, xem dữ liệu cục bộ và lưu trữ cục bộ. Ứng dụng không chủ động thu thập thông tin nhận dạng cá nhân, không tải dữ liệu người dùng lên máy chủ và không dùng cho quảng cáo, theo dõi hoặc lập hồ sơ người dùng."],
+      ["2. Dữ liệu được xử lý", "Ứng dụng có thể xử lý dữ liệu vận hành của thiết bị BMS như điện áp, dòng điện, nhiệt độ, ngưỡng bảo vệ, trạng thái cân bằng và lỗi; dữ liệu cấu hình do người dùng lưu; và nhật ký vận hành cục bộ để hỗ trợ khắc phục sự cố. Các dữ liệu này mặc định lưu trên thiết bị của người dùng."],
+      ["3. Quyền Bluetooth, vị trí và USB", "Bluetooth chỉ dùng để quét, ghép đôi, kết nối và giao tiếp với bo mạch bảo vệ BMS. Trên Android 11 trở xuống, quyền vị trí có thể được hệ thống yêu cầu cho quét BLE, nhưng ứng dụng không ghi lại hoặc tải lên vị trí thực tế. Nếu hỗ trợ USB hoặc cổng nối tiếp, quyền liên quan chỉ dùng cho giao tiếp cục bộ với thiết bị."],
+      ["4. Mục đích sử dụng", "Dữ liệu chỉ được dùng để kết nối thiết bị BMS, hiển thị trạng thái pin, đọc hoặc cấu hình thông số BMS, cải thiện ổn định giao tiếp và hỗ trợ gỡ lỗi tại chỗ. Dữ liệu không được dùng cho quảng cáo, phân tích thương mại, bán dữ liệu hoặc chia sẻ với bên thứ ba."],
+      ["5. Lưu trữ, xóa và bảo mật", "Dữ liệu vận hành và cấu hình mặc định được lưu trong môi trường cục bộ của thiết bị. Người dùng có thể xóa dữ liệu trong ứng dụng hoặc trong cài đặt hệ thống. Khi gỡ cài đặt, hệ điều hành thường xóa bộ nhớ đệm và dữ liệu cục bộ của ứng dụng."],
+      ["6. SDK bên thứ ba", "Phiên bản hiện tại không tích hợp SDK quảng cáo, thống kê, theo dõi, thanh toán, bản đồ, lưu trữ đám mây hoặc phân tích người dùng. Nếu phiên bản tương lai tích hợp dịch vụ bên thứ ba, chính sách này sẽ được cập nhật trước khi sử dụng."],
+      ["7. Trẻ em và quyền của người dùng", "Ứng dụng là công cụ chuyên nghiệp cho BMS, không hướng đến trẻ em. Người dùng có thể xem, xóa dữ liệu cục bộ, ngừng sử dụng ứng dụng hoặc liên hệ với chúng tôi về vấn đề quyền riêng tư và an toàn dữ liệu."],
+      ["8. Liên hệ", `Công ty: ${company.legalNameVi}. Email: ${company.email}. Điện thoại: ${company.phone}. Địa chỉ: ${company.address}.`],
+    ],
+  },
+  en: {
+    title: "Privacy Policy",
+    subtitle: "Applies to the DJ ELECTRONICS website and the BMS Protection Board Manager app.",
+    updated: "Last Updated: July 24, 2026 | Effective Date: July 24, 2026",
+    sections: [
+      ["1. Data Processing Principle", "The app is designed for local operation: local device connection, local data viewing, and local storage. It does not actively collect personally identifiable information, upload user data to servers, or use data for advertising, tracking, or profiling."],
+      ["2. Data Processed", "The app may process BMS device operating data such as voltage, current, temperature, protection thresholds, balancing status, and fault status; user-saved configuration data; and local operation logs for troubleshooting. These data are stored locally on the user's device by default."],
+      ["3. Bluetooth, Location, and USB Permissions", "Bluetooth is used only to scan, pair, connect, and communicate with BMS protection boards. On Android 11 and earlier, location permission may be required by the system for BLE scanning, but the app does not record or upload actual location. If USB or serial connection is supported, related permissions are used only for local device communication."],
+      ["4. Purpose of Use", "Data is used only to connect BMS devices, display battery status, read or configure BMS parameters, improve communication stability, and support local debugging. It is not used for advertising, commercial analytics, data sale, or third-party sharing."],
+      ["5. Storage, Deletion, and Security", "Operation and configuration data are stored locally by default. Users can delete data in the app or through system settings. When the app is uninstalled, the operating system usually removes app cache and local data."],
+      ["6. Third-Party SDKs", "The current version does not integrate advertising, analytics, tracking, payment, map, cloud storage, or user analysis SDKs. If future versions integrate third-party services, this policy will be updated before use."],
+      ["7. Children and User Rights", "The app is a professional BMS tool and is not directed to children. Users may view and delete local data, stop using the app, or contact us about privacy and data security questions."],
+      ["8. Contact", `Company: ${company.legalNameVi}. Email: ${company.email}. Phone: ${company.phone}. Address: ${company.address}.`],
+    ],
+  },
+  zh: {
+    title: "隐私政策",
+    subtitle: "适用于 DJ ELECTRONICS 官网及 BMS Protection Board Manager 应用。",
+    updated: "更新日期：2026年07月24日 | 生效日期：2026年07月24日",
+    sections: [
+      ["1. 数据处理原则", "应用采用本地运行、本地连接、本地保存的设计。应用不主动收集可识别个人身份的信息，不将用户数据上传至服务器，也不用于广告、追踪或用户画像分析。"],
+      ["2. 处理的数据", "应用可能在本地处理 BMS 设备运行数据，例如电压、电流、温度、保护阈值、均衡状态和故障状态；用户保存的配置数据；以及用于故障排查的本地运行日志。这些数据默认保存在用户设备本地。"],
+      ["3. 蓝牙、位置和 USB 权限", "蓝牙权限仅用于扫描、配对、连接和通信 BMS 保护板。Android 11 及以下系统可能要求位置权限作为 BLE 扫描前置条件，但应用不会记录或上传实际地理位置。如支持 USB 或串口连接，相关权限仅用于本地设备通信。"],
+      ["4. 使用目的", "数据仅用于连接 BMS 设备、显示电池状态、读取或配置 BMS 参数、提升通信稳定性和支持本地调试。不会用于广告营销、商业分析、数据出售或第三方共享。"],
+      ["5. 存储、删除与安全", "运行数据和配置数据默认存储在用户设备本地。用户可在应用内或系统设置中删除数据。卸载应用后，系统通常会删除应用缓存和本地数据。"],
+      ["6. 第三方 SDK", "当前版本不集成广告、统计、追踪、支付、地图、云存储或用户分析 SDK。若未来版本接入第三方服务，我们会在使用前更新本政策。"],
+      ["7. 儿童与用户权利", "本应用是面向 BMS 保护板的专业工具，不面向儿童。用户可以查看和删除本地数据、停止使用应用，或就隐私和数据安全问题联系我们。"],
+      ["8. 联系方式", `公司：${company.legalNameVi}。邮箱：${company.email}。电话：${company.phone}。地址：${company.address}。`],
+    ],
   },
 };
 
@@ -526,8 +580,42 @@ function renderContact(data) {
           <div class="detail-card"><span>${data.contact.details.email}</span><a href="mailto:${company.email}">${company.email}</a></div>
           <div class="detail-card"><span>${data.contact.details.address}</span><strong>${company.legalNameVi}</strong><strong>${company.legalNameEn}</strong><strong>${company.address}</strong></div>
         </div>
+        <a class="privacy-card" href="#privacy">
+          <span>${data.contact.privacyLabel}</span>
+          <strong>${data.contact.privacyText}</strong>
+        </a>
       </div>
     </section>
+  `;
+}
+
+function renderPrivacy() {
+  const policy = privacyPolicies[state.lang];
+  return `
+    <section class="section privacy-section">
+      <div class="section-inner privacy-shell">
+        <div class="privacy-hero">
+          <span class="eyebrow">BMS Protection Board Manager</span>
+          <h1>${policy.title}</h1>
+          <p>${policy.subtitle}</p>
+          <small>${policy.updated}</small>
+        </div>
+        <div class="privacy-content">
+          ${policy.sections.map(([title, text]) => `<article><h2>${title}</h2><p>${text}</p></article>`).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderFooter(data) {
+  return `
+    <div>
+      <strong>${company.shortName}</strong>
+      <span>${company.legalNameVi}</span>
+      <span>${company.address}</span>
+      <a href="#privacy">${data.contact.privacyLabel}</a>
+    </div>
   `;
 }
 
@@ -556,6 +644,7 @@ function render() {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
   document.title = data.metaTitle;
   document.querySelector(".header-cta").textContent = data.cta.contact;
+  document.querySelector("#site-footer").innerHTML = renderFooter(data);
 
   document.querySelectorAll("[data-route]").forEach((link) => {
     const route = link.dataset.route;
@@ -574,6 +663,7 @@ function render() {
     oem: renderOem,
     about: renderAbout,
     contact: renderContact,
+    privacy: renderPrivacy,
   };
   document.querySelector("#app").innerHTML = renderers[state.route](data);
   document.querySelector("#app").focus({ preventScroll: true });

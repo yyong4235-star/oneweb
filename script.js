@@ -1,407 +1,10 @@
-const company = {
-  legalNameVi: "CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ",
-  legalNameEn: "DJ ELECTRONIC EQUIPMENT COMPANY LIMITED",
-  shortName: "DJ ELECTRONICS CO., LTD",
-  foundedYear: "2019",
-  address: "Số nhà 083, phố Tuệ Tĩnh, tổ 10 Kim Tân, Phường Lào Cai, Tỉnh Lào Cai, Việt Nam",
-  phone: "+84 963 162 922",
-  phoneHref: "+84963162922",
-  email: "congtytnhhthietbidientudj@gmail.com",
-};
+let siteConfig = null;
+let company = null;
+let copy = null;
+let privacyPolicies = null;
 
 const routes = ["home", "products", "manufacturing", "oem", "about", "contact", "privacy"];
-
-const productImages = [
-  "./assets/products/product-01.jpg",
-  "./assets/products/product-02.jpg",
-  "./assets/products/product-03.jpg",
-  "./assets/products/product-04.jpg",
-  "./assets/products/product-05.jpg",
-  "./assets/products/product-06.jpg",
-];
-
-const manufacturingImages = [
-  "./assets/manufacturing/manufacturing-01.jpg",
-  "./assets/manufacturing/manufacturing-02.jpg",
-  "./assets/manufacturing/manufacturing-03.jpg",
-  "./assets/manufacturing/manufacturing-04.jpg",
-  "./assets/manufacturing/manufacturing-05.jpg",
-  "./assets/manufacturing/manufacturing-06.jpg",
-];
-
-const oemImages = [
-  "./assets/oem/oem-01.jpg",
-  "./assets/oem/oem-02.jpg",
-  "./assets/oem/oem-03.jpg",
-];
-
-const homeImages = [
-  "./assets/home/home-01.jpg",
-  "./assets/home/home-02.jpg",
-  "./assets/home/home-03.jpg",
-];
-
-const copy = {
-  vi: {
-    metaTitle: "DJ ELECTRONICS CO., LTD | Sản xuất điện tử năng lượng mới tại Việt Nam",
-    nav: {
-      home: "Trang chủ",
-      products: "Sản phẩm",
-      manufacturing: "Sản xuất",
-      oem: "OEM/ODM",
-      about: "Giới thiệu",
-      contact: "Liên hệ",
-    },
-    cta: {
-      contact: "Liên hệ ngay",
-      email: "Gửi email",
-      call: "Gọi ngay",
-      products: "Xem sản phẩm",
-    },
-    home: {
-      eyebrow: "Đối tác phần cứng điện tử tại Việt Nam",
-      title: "Sản xuất nguồn sạc, BMS và PCB/SMT cho ngành năng lượng mới",
-      intro:
-        "DJ ELECTRONICS CO., LTD cung cấp bộ sạc nhanh, hệ thống quản lý pin BMS, bảng bảo vệ pin lithium, gia công PCB/SMT và lắp ráp PACK cho khách hàng sản xuất điện tử, xe điện và lưu trữ năng lượng.",
-      panelTitle: "Năng lực trọng tâm",
-      metrics: [
-        ["OEM / ODM", "Hỗ trợ dán nhãn, chỉnh sửa phương án và phát triển theo thông số riêng"],
-        ["SMT + PACK", "Tích hợp gia công mạch, hàn linh kiện, lắp ráp pin và thành phẩm"],
-        ["Giao hàng tại Việt Nam", "Phản hồi nhanh, thuận tiện cho doanh nghiệp nội địa và khách hàng xuyên biên giới"],
-      ],
-      sectionsTitle: "Giải pháp phần cứng cho khách hàng mua hàng và chuỗi cung ứng",
-      sectionsIntro:
-        "Website tập trung vào các hạng mục mà khách hàng B2B cần đánh giá trước khi hợp tác: sản phẩm, năng lực sản xuất, phương thức tùy chỉnh và kênh liên hệ rõ ràng.",
-      highlights: [
-        {
-          title: "Nguồn sạc năng lượng mới",
-          text: "Bộ sạc nhanh nhiều quy cách, sạc lưu trữ trên xe và nguồn sạc chuyên dụng cho thiết bị.",
-          tags: ["Fast charger", "Energy storage", "Device power"],
-        },
-        {
-          title: "BMS và bảng bảo vệ pin",
-          text: "Giải pháp quản lý pin lithium, bảng bảo vệ thông dụng và bảng bảo vệ công suất lớn cho lưu trữ năng lượng.",
-          tags: ["BMS", "Lithium battery", "Protection board"],
-        },
-        {
-          title: "PCB/SMT và bán thành phẩm",
-          text: "Gia công bảng mạch, dán linh kiện SMT và sản xuất bán thành phẩm cho các nhà máy thiết bị điện tử.",
-          tags: ["PCB", "SMT", "Assembly"],
-        },
-      ],
-      bandTitle: "Bạn cần đánh giá nhà cung cấp cho sản phẩm điện tử năng lượng mới?",
-      bandText: "Gửi thông số, mẫu hoặc yêu cầu ứng dụng. Đội ngũ DJ sẽ phản hồi theo hướng OEM, ODM hoặc phát triển riêng.",
-    },
-    products: {
-      eyebrow: "Danh mục sản phẩm",
-      title: "Sản phẩm và dịch vụ sản xuất chính",
-      intro:
-        "Các hạng mục được tổ chức theo nhu cầu mua hàng thực tế: nguồn sạc, quản lý pin, bảng mạch và sản xuất bán thành phẩm.",
-      items: [
-        {
-          title: "Bộ sạc nhanh năng lượng mới",
-          description: "Các quy cách bộ sạc nhanh cho xe điện hai bánh, ba bánh, thiết bị lưu trữ và ứng dụng điện tử chuyên dụng.",
-          applications: ["Xe điện hai / ba bánh", "Nguồn lưu trữ di động", "Thiết bị cần nguồn sạc riêng"],
-          capabilities: ["OEM nhãn hiệu", "Điều chỉnh thông số", "Sản xuất số lượng lớn"],
-        },
-        {
-          title: "Sạc lưu trữ trên xe và sạc thiết bị",
-          description: "Nguồn sạc cho hệ thống lưu trữ trên xe, bộ nguồn thiết bị và các ứng dụng cần độ ổn định cao.",
-          applications: ["Lưu trữ năng lượng", "Thiết bị công nghiệp", "Tổ hợp nguồn tùy chỉnh"],
-          capabilities: ["Tối ưu hiệu suất", "Thiết kế theo công suất", "Lắp ráp thành phẩm"],
-        },
-        {
-          title: "BMS quản lý pin lithium",
-          description: "Hệ thống BMS và bảng bảo vệ pin lithium hỗ trợ quản lý an toàn cho bộ pin trong nhiều điều kiện sử dụng.",
-          applications: ["Pin lithium", "Bộ pin lưu trữ", "Thiết bị điện di động"],
-          capabilities: ["Phương án BMS", "Tùy chỉnh điện áp / dòng", "Tối ưu theo môi trường sử dụng"],
-        },
-        {
-          title: "Bảng bảo vệ pin công suất lớn",
-          description: "Bảng bảo vệ thông dụng và công suất lớn cho hệ thống pin lưu trữ cần vận hành ổn định.",
-          applications: ["Lưu trữ dân dụng", "Nguồn dự phòng", "Tổ hợp pin công suất cao"],
-          capabilities: ["Thiết kế bảo vệ", "Sản xuất theo đơn", "Kiểm soát chất lượng xuất xưởng"],
-        },
-        {
-          title: "PCB và SMT",
-          description: "Gia công bảng mạch, dán linh kiện bằng dây chuyền SMT tự động và hàn linh kiện theo yêu cầu sản phẩm.",
-          applications: ["Nhà máy điện tử", "Thiết bị số", "Thiết bị công nghiệp"],
-          capabilities: ["SMT", "Hàn linh kiện", "Kiểm tra bán thành phẩm"],
-        },
-        {
-          title: "Bán thành phẩm mạch điện tử",
-          description: "Sản xuất bán thành phẩm và cụm bảng mạch cho khách hàng cần năng lực gia công ổn định tại Việt Nam.",
-          applications: ["Lắp ráp điện tử", "Gia công thuê ngoài", "Chuỗi cung ứng xuyên biên giới"],
-          capabilities: ["Sản xuất theo đơn", "Đóng gói theo yêu cầu", "Giao hàng linh hoạt"],
-        },
-      ],
-    },
-    manufacturing: {
-      eyebrow: "Năng lực sản xuất",
-      title: "Từ phương án mạch đến thành phẩm lắp ráp",
-      intro:
-        "DJ kết hợp đội ngũ R&D, dây chuyền SMT và nhà máy PACK để kiểm soát nhiều khâu trong cùng một hệ thống sản xuất.",
-      splitTitle: "Năng lực tích hợp giúp rút ngắn phản hồi chuỗi cung ứng",
-      splitText:
-        "Từ dán linh kiện, hàn, đóng gói pin đến lắp ráp thành phẩm, mô hình sản xuất khép kín giúp khách hàng kiểm soát tiến độ, chất lượng và chi phí tốt hơn.",
-      capabilities: [
-        { name: "R&D kỹ thuật", description: "Tiếp thu phương án nguồn và quản lý pin từ thị trường quốc tế, tối ưu độ ổn định và hiệu suất chuyển đổi.", customerValue: "Phù hợp khi khách hàng cần điều chỉnh thông số hoặc phát triển sản phẩm riêng." },
-        { name: "SMT tự động", description: "Dây chuyền dán linh kiện hỗ trợ gia công PCB và các cụm mạch điện tử.", customerValue: "Giảm phụ thuộc vào nhiều nhà cung cấp rời rạc." },
-        { name: "Hàn linh kiện", description: "Phối hợp với SMT để hoàn thiện bảng mạch, bán thành phẩm và cụm module.", customerValue: "Hỗ trợ đơn hàng linh hoạt từ bán thành phẩm đến thành phẩm." },
-        { name: "PACK pin", description: "Nhà máy PACK tiêu chuẩn hỗ trợ lắp ráp bộ pin và đóng gói theo nhu cầu sản phẩm.", customerValue: "Phù hợp cho khách hàng trong ngành lưu trữ năng lượng và xe điện nhẹ." },
-        { name: "Lắp ráp thành phẩm", description: "Tổ chức từ mạch, vỏ, pin đến thành phẩm nguồn sạc hoặc module điện tử.", customerValue: "Một đầu mối quản lý tiến độ sản xuất." },
-        { name: "Kiểm soát xuất xưởng", description: "Tập trung kiểm tra chất lượng trước khi giao hàng để đảm bảo ổn định khi sản xuất số lượng lớn.", customerValue: "Giúp khách hàng giảm rủi ro khi mở rộng đơn hàng." },
-      ],
-    },
-    oem: {
-      eyebrow: "Hợp tác OEM / ODM",
-      title: "Ba mô hình hợp tác cho khách hàng sản xuất và thương mại",
-      intro:
-        "DJ hỗ trợ từ dán nhãn thành phẩm đến tùy chỉnh thông số và phát triển phần cứng theo điều kiện sử dụng cụ thể.",
-      modes: [
-        { mode: "OEM", description: "Sản xuất thành phẩm theo nhận diện thương hiệu, yêu cầu ngoại quan và quy cách đóng gói của khách hàng.", bestFor: "Phù hợp với thương hiệu cần nguồn hàng ổn định và giao hàng nhanh." },
-        { mode: "ODM", description: "Dựa trên phương án mạch hiện có của DJ, điều chỉnh cấu trúc, thông số hoặc đầu ra phần mềm theo nhu cầu.", bestFor: "Phù hợp với khách hàng muốn rút ngắn thời gian phát triển sản phẩm." },
-        { mode: "Phát triển tùy chỉnh", description: "Thiết kế bộ sạc, BMS hoặc bảng bảo vệ từ đầu theo điều kiện sử dụng, điện áp, dòng điện và yêu cầu bảo vệ riêng.", bestFor: "Phù hợp với dự án có thông số đặc biệt hoặc môi trường sử dụng riêng." },
-      ],
-      processTitle: "Quy trình làm việc đề xuất",
-      process: [
-        ["Trao đổi yêu cầu", "Khách hàng gửi thông số, mẫu, bản vẽ hoặc tình huống sử dụng."],
-        ["Đánh giá phương án", "DJ xác định nên dùng OEM, ODM hay phát triển tùy chỉnh."],
-        ["Xác nhận mẫu", "Hai bên thống nhất cấu trúc, thông số, vật liệu và yêu cầu đóng gói."],
-        ["Sản xuất và giao hàng", "Tổ chức sản xuất, kiểm soát chất lượng và giao hàng theo thỏa thuận."],
-      ],
-    },
-    about: {
-      eyebrow: "Về công ty",
-      title: "Doanh nghiệp điện tử năng lượng mới đặt tại Lào Cai, Việt Nam",
-      intro:
-        "DJ ELECTRONICS CO., LTD được thành lập năm 2019, tập trung vào sản phẩm nguồn sạc, quản lý pin, gia công mạch điện tử và lắp ráp PACK.",
-      body:
-        "Công ty tích hợp nghiên cứu kỹ thuật, gia công bảng mạch, lắp ráp pin PACK và sản xuất thành phẩm. Với lợi thế nhà máy tại Việt Nam và kinh nghiệm trong phần cứng điện tử năng lượng mới, DJ cung cấp sản phẩm và dịch vụ sản xuất ổn định, có tính cạnh tranh cho khách hàng trong ngành năng lượng mới và điện tử.",
-      facts: [
-        ["Tên pháp lý", company.legalNameVi],
-        ["Tên tiếng Anh", company.legalNameEn],
-        ["Tên viết tắt", company.shortName],
-        ["Thành lập", company.foundedYear],
-        ["Địa chỉ", company.address],
-      ],
-    },
-    contact: {
-      eyebrow: "Liên hệ",
-      title: "Gửi yêu cầu sản phẩm, thông số hoặc nhu cầu OEM/ODM",
-      intro:
-        "Liên hệ trực tiếp với DJ qua điện thoại hoặc email. Vui lòng gửi ngành ứng dụng, thông số điện áp / dòng điện, số lượng dự kiến và yêu cầu đóng gói nếu có.",
-      details: {
-        phone: "Điện thoại",
-        email: "Email",
-        address: "Địa chỉ",
-      },
-      privacyLabel: "Chính sách quyền riêng tư",
-      privacyText: "Xem chính sách quyền riêng tư dùng cho website và ứng dụng BMS Protection Board Manager.",
-    },
-  },
-  en: {
-    metaTitle: "DJ ELECTRONICS CO., LTD | Vietnam Power Electronics Manufacturing",
-    nav: { home: "Home", products: "Products", manufacturing: "Manufacturing", oem: "OEM/ODM", about: "About", contact: "Contact" },
-    cta: { contact: "Contact Sales", email: "Email Us", call: "Call Now", products: "View Products" },
-    home: {
-      eyebrow: "Vietnam-based power electronics partner",
-      title: "Chargers, BMS and PCB/SMT manufacturing for new energy hardware",
-      intro:
-        "DJ ELECTRONICS CO., LTD supplies fast chargers, battery management systems, lithium battery protection boards, PCB/SMT assembly and PACK assembly for electronics, light EV and energy storage customers.",
-      panelTitle: "Core capabilities",
-      metrics: [["OEM / ODM", "Brand labeling, solution adjustment and development to customer parameters"], ["SMT + PACK", "Integrated PCB assembly, welding, battery packaging and finished product assembly"], ["Vietnam delivery", "Fast response for local companies and cross-border customers"]],
-      sectionsTitle: "Hardware solutions for purchasing and supply chain teams",
-      sectionsIntro: "The site focuses on what B2B buyers need to evaluate: product scope, production capability, customization options and clear contact channels.",
-      highlights: [
-        { title: "New energy chargers", text: "Fast chargers, vehicle energy storage chargers and dedicated power chargers for equipment applications.", tags: ["Fast charger", "Energy storage", "Device power"] },
-        { title: "BMS and battery protection", text: "Lithium battery management systems, general protection boards and high-power storage battery protection boards.", tags: ["BMS", "Lithium battery", "Protection board"] },
-        { title: "PCB/SMT and semi-finished boards", text: "PCB assembly, SMT placement and semi-finished circuit board production for electronics manufacturers.", tags: ["PCB", "SMT", "Assembly"] },
-      ],
-      bandTitle: "Need to evaluate a supplier for new energy electronics?",
-      bandText: "Send specifications, samples or application requirements. DJ will respond with an OEM, ODM or custom development path.",
-    },
-    products: {
-      eyebrow: "Product matrix",
-      title: "Core products and manufacturing services",
-      intro: "Product groups are organized around real purchasing needs: chargers, battery management, circuit boards and semi-finished production.",
-      items: [
-        { title: "New energy fast chargers", description: "Multiple charger specifications for two-wheelers, three-wheelers, energy storage devices and dedicated electronics applications.", applications: ["Two / three-wheel EV", "Portable energy storage", "Custom charging equipment"], capabilities: ["OEM branding", "Parameter adjustment", "Volume production"] },
-        { title: "Vehicle storage and equipment chargers", description: "Charging power supplies for vehicle storage systems, equipment power modules and applications requiring stable output.", applications: ["Energy storage", "Industrial equipment", "Custom power assemblies"], capabilities: ["Efficiency optimization", "Power-based design", "Finished assembly"] },
-        { title: "Lithium battery BMS", description: "BMS systems and lithium battery protection boards for safer battery pack management in varied operating conditions.", applications: ["Lithium batteries", "Storage battery packs", "Portable electric devices"], capabilities: ["BMS solutions", "Voltage / current customization", "Application-based optimization"] },
-        { title: "High-power battery protection boards", description: "General and high-power protection boards for storage battery systems that require stable operation.", applications: ["Residential storage", "Backup power", "High-power battery packs"], capabilities: ["Protection design", "Made-to-order production", "Outgoing quality control"] },
-        { title: "PCB and SMT", description: "PCB processing, automated SMT placement and component welding according to product requirements.", applications: ["Electronics factories", "Digital hardware", "Industrial control equipment"], capabilities: ["SMT", "Component welding", "Semi-finished inspection"] },
-        { title: "Semi-finished circuit assemblies", description: "Semi-finished boards and circuit assemblies for customers needing stable manufacturing capacity in Vietnam.", applications: ["Electronics assembly", "Outsourced manufacturing", "Cross-border supply chains"], capabilities: ["Order-based production", "Custom packaging", "Flexible delivery"] },
-      ],
-    },
-    manufacturing: {
-      eyebrow: "Manufacturing capability",
-      title: "From circuit solutions to finished assemblies",
-      intro: "DJ combines R&D, SMT lines and PACK assembly to control several key stages within one production system.",
-      splitTitle: "Integrated capability shortens supply chain response",
-      splitText: "From SMT placement, welding and battery packaging to finished product assembly, an integrated model helps customers manage schedule, quality and cost.",
-      capabilities: [
-        { name: "Technical R&D", description: "Adopts advanced power and battery management solutions and improves stability and conversion efficiency.", customerValue: "Useful when parameters need adjustment or a custom product path is required." },
-        { name: "Automated SMT", description: "SMT placement lines support PCB processing and electronic circuit assemblies.", customerValue: "Reduces reliance on fragmented suppliers." },
-        { name: "Component welding", description: "Works with SMT to complete boards, semi-finished products and module assemblies.", customerValue: "Supports orders from semi-finished boards to finished products." },
-        { name: "Battery PACK", description: "Standard PACK assembly supports battery pack assembly and packaging for product needs.", customerValue: "Fits energy storage and light EV customers." },
-        { name: "Finished assembly", description: "Organizes boards, housing, batteries and finished charger or electronic module production.", customerValue: "One accountable production contact." },
-        { name: "Outgoing quality control", description: "Focuses on pre-shipment quality checks to support stable volume production.", customerValue: "Reduces risk when customers scale orders." },
-      ],
-    },
-    oem: {
-      eyebrow: "OEM / ODM cooperation",
-      title: "Three cooperation models for manufacturing and trading customers",
-      intro: "DJ supports brand labeling, parameter adjustment and hardware development for specific operating conditions.",
-      modes: [
-        { mode: "OEM", description: "Finished product manufacturing according to customer branding, appearance and packaging requirements.", bestFor: "Best for brands needing stable supply and fast delivery." },
-        { mode: "ODM", description: "Based on DJ's existing circuit solutions, structure, parameters or software output can be adjusted as needed.", bestFor: "Best for customers who want to shorten product development time." },
-        { mode: "Custom development", description: "Develop chargers, BMS or protection boards from the ground up based on operating conditions, voltage, current and protection needs.", bestFor: "Best for projects with special parameters or unique use environments." },
-      ],
-      processTitle: "Suggested workflow",
-      process: [["Requirement discussion", "Customer sends specifications, samples, drawings or application scenarios."], ["Solution review", "DJ identifies whether OEM, ODM or custom development fits best."], ["Sample confirmation", "Both sides confirm structure, parameters, materials and packaging requirements."], ["Production and delivery", "Production, quality control and delivery are arranged as agreed."]],
-    },
-    about: {
-      eyebrow: "About us",
-      title: "A new energy electronics company based in Lào Cai, Vietnam",
-      intro: "DJ ELECTRONICS CO., LTD was established in 2019 and focuses on charging power supplies, battery management, PCB assembly and PACK assembly.",
-      body: "The company integrates technical research, circuit board processing, battery PACK assembly and finished product manufacturing. With a Vietnam factory location and experience in new energy electronics hardware, DJ provides stable and competitive products and production services for new energy and electronics customers.",
-      facts: [["Legal name", company.legalNameVi], ["English name", company.legalNameEn], ["Short name", company.shortName], ["Founded", company.foundedYear], ["Address", company.address]],
-    },
-    contact: {
-      eyebrow: "Contact",
-      title: "Send product requirements, specifications or OEM/ODM needs",
-      intro: "Contact DJ directly by phone or email. Please include application industry, voltage / current parameters, estimated quantity and packaging requirements when available.",
-      details: { phone: "Phone", email: "Email", address: "Address" },
-      privacyLabel: "Privacy Policy",
-      privacyText: "View the privacy policy for the website and BMS Protection Board Manager app.",
-    },
-  },
-  zh: {
-    metaTitle: "DJ ELECTRONICS CO., LTD | 越南新能源电子硬件制造",
-    nav: { home: "首页", products: "产品", manufacturing: "制造能力", oem: "OEM/ODM", about: "关于我们", contact: "联系" },
-    cta: { contact: "立即联系", email: "发送邮件", call: "拨打电话", products: "查看产品" },
-    home: {
-      eyebrow: "越南本地电源电子硬件合作伙伴",
-      title: "面向新能源硬件的充电器、BMS 与 PCB/SMT 制造服务",
-      intro: "DJ ELECTRONICS CO., LTD 为电子制造、轻型电动车和储能客户提供快充充电器、BMS 管理系统、锂电池保护板、PCB/SMT 加工和 PACK 组装服务。",
-      panelTitle: "核心能力",
-      metrics: [["OEM / ODM", "支持贴牌、方案修改和按客户参数开发"], ["SMT + PACK", "整合电路板贴片、元器件焊接、电池封装和成品组装"], ["越南本地交付", "便于服务越南本地企业与跨境客户" ]],
-      sectionsTitle: "为采购与供应链团队提供的硬件配套方案",
-      sectionsIntro: "网站重点呈现 B2B 客户合作前需要评估的信息：产品范围、生产能力、定制方式和清晰的联系渠道。",
-      highlights: [
-        { title: "新能源充电器", text: "各类规格快充充电器、车载储能充电器和设备专用电源充电器。", tags: ["快充", "储能", "设备电源"] },
-        { title: "BMS 与电池保护板", text: "锂电池管理系统、通用锂电池保护板和大功率储能电池保护板。", tags: ["BMS", "锂电池", "保护板"] },
-        { title: "PCB/SMT 与半成品", text: "为电子设备厂商提供 PCB 加工、SMT 贴片和电路板半成品代工生产。", tags: ["PCB", "SMT", "组装"] },
-      ],
-      bandTitle: "需要评估新能源电子硬件供应商？",
-      bandText: "发送参数、样品或应用需求。DJ 将根据情况提供 OEM、ODM 或专项定制开发建议。",
-    },
-    products: {
-      eyebrow: "产品矩阵",
-      title: "核心产品与制造服务",
-      intro: "产品按采购需求组织：充电电源、电池管理、电路板加工和半成品代工。",
-      items: [
-        { title: "新能源快充充电器", description: "适用于两轮 / 三轮电动车、便携式储能和专用电子设备的多规格快充充电器。", applications: ["两轮 / 三轮电动车", "便携式储能", "专用充电设备"], capabilities: ["OEM 贴牌", "参数调整", "批量生产"] },
-        { title: "车载储能与设备专用充电器", description: "适用于车载储能系统、设备电源模块和需要稳定输出的应用场景。", applications: ["储能系统", "工控设备", "定制电源组件"], capabilities: ["能效优化", "按功率设计", "成品组装"] },
-        { title: "锂电池 BMS 管理系统", description: "为不同工况下的电池包提供 BMS 系统和锂电池保护板，提升电池管理安全性。", applications: ["锂电池", "储能电池包", "便携式电动设备"], capabilities: ["BMS 方案", "电压 / 电流定制", "按应用环境优化"] },
-        { title: "大功率电池保护板", description: "为需要稳定运行的储能电池系统提供通用和大功率保护板。", applications: ["户用储能", "备用电源", "大功率电池组"], capabilities: ["保护方案设计", "按单生产", "出厂质量把控"] },
-        { title: "PCB 与 SMT 贴片", description: "根据产品要求进行电路板加工、自动化 SMT 贴片和元器件焊接。", applications: ["电子设备工厂", "数码硬件", "工控设备"], capabilities: ["SMT", "元器件焊接", "半成品检测"] },
-        { title: "电路板半成品代工", description: "为需要越南本地稳定制造能力的客户提供电路板半成品和组件生产。", applications: ["电子组装", "外协加工", "跨境供应链"], capabilities: ["按单生产", "按需包装", "灵活交付"] },
-      ],
-    },
-    manufacturing: {
-      eyebrow: "制造能力",
-      title: "从电路方案到成品组装",
-      intro: "DJ 结合研发团队、SMT 贴片线和 PACK 组装工厂，在同一生产体系中把控多个关键环节。",
-      splitTitle: "一体化能力缩短供应链响应时间",
-      splitText: "从贴片、焊接、电池封装到成品组装，一体化生产模式帮助客户更好地管理进度、质量和成本。",
-      capabilities: [
-        { name: "技术研发", description: "引入电源和电池管理方案技术，持续优化产品稳定性和能效转化。", customerValue: "适合需要调整参数或开发专属产品的客户。" },
-        { name: "自动化 SMT", description: "SMT 贴片生产线支持 PCB 加工和电子电路组件生产。", customerValue: "减少客户对多个分散供应商的依赖。" },
-        { name: "元器件焊接", description: "配合 SMT 完成电路板、半成品和模块组件。", customerValue: "支持从半成品到成品的不同订单需求。" },
-        { name: "电池 PACK", description: "标准化 PACK 工厂支持电池组装和按产品需求进行封装。", customerValue: "适合储能和轻型电动车客户。" },
-        { name: "成品组装", description: "组织电路板、外壳、电池和充电器或电子模块成品生产。", customerValue: "让客户用一个生产对接窗口管理进度。" },
-        { name: "出厂质量控制", description: "交付前集中进行质量检查，支持稳定批量生产。", customerValue: "帮助客户在扩大订单时降低风险。" },
-      ],
-    },
-    oem: {
-      eyebrow: "OEM / ODM 合作",
-      title: "面向生产和贸易客户的三种合作模式",
-      intro: "DJ 支持从成品贴牌，到参数修改，再到按具体使用工况开发硬件方案。",
-      modes: [
-        { mode: "OEM", description: "依据客户品牌标识、外观要求和包装规范进行成品贴牌量产。", bestFor: "适合需要稳定货源和快速交付的品牌客户。" },
-        { mode: "ODM", description: "依托 DJ 现有成熟电路方案，按需修改结构、参数或软件输出。", bestFor: "适合希望缩短产品开发周期的客户。" },
-        { mode: "专项定制开发", description: "根据使用工况、电压、电流和特殊防护需求，从零开发充电器、BMS 或保护板。", bestFor: "适合参数特殊或使用环境有特殊要求的项目。" },
-      ],
-      processTitle: "建议合作流程",
-      process: [["需求沟通", "客户发送参数、样品、图纸或使用场景。"], ["方案评估", "DJ 判断适合 OEM、ODM 还是专项定制开发。"], ["样品确认", "双方确认结构、参数、材料和包装要求。"], ["生产交付", "按约定组织生产、质量控制和交付。"]],
-    },
-    about: {
-      eyebrow: "关于公司",
-      title: "位于越南老街的新能源电子企业",
-      intro: "DJ ELECTRONICS CO., LTD 成立于 2019 年，专注充电电源、电池管理、电路板加工和 PACK 组装。",
-      body: "公司集技术研发、电路板加工、电池 PACK 组装和成品生产于一体。依托越南本地工厂区位优势和新能源电子硬件经验，DJ 为新能源和电子制造客户提供稳定、有竞争力的产品及生产服务。",
-      facts: [["法定名称", company.legalNameVi], ["英文全称", company.legalNameEn], ["英文简写", company.shortName], ["成立时间", company.foundedYear], ["地址", company.address]],
-    },
-    contact: {
-      eyebrow: "联系我们",
-      title: "发送产品需求、参数或 OEM/ODM 合作需求",
-      intro: "可通过电话或邮箱直接联系 DJ。建议在邮件中说明应用行业、电压 / 电流参数、预计数量和包装要求。",
-      details: { phone: "电话", email: "电子邮箱", address: "地址" },
-      privacyLabel: "隐私政策",
-      privacyText: "查看官网和 BMS Protection Board Manager 应用使用的隐私政策。",
-    },
-  },
-};
-
-const privacyPolicies = {
-  vi: {
-    title: "Chính sách quyền riêng tư",
-    subtitle: "Áp dụng cho website DJ ELECTRONICS và ứng dụng BMS Protection Board Manager.",
-    updated: "Cập nhật: 24/07/2026 | Hiệu lực: 24/07/2026",
-    sections: [
-      ["1. Nguyên tắc xử lý dữ liệu", "Ứng dụng được thiết kế để hoạt động cục bộ: kết nối thiết bị cục bộ, xem dữ liệu cục bộ và lưu trữ cục bộ. Ứng dụng không chủ động thu thập thông tin nhận dạng cá nhân, không tải dữ liệu người dùng lên máy chủ và không dùng cho quảng cáo, theo dõi hoặc lập hồ sơ người dùng."],
-      ["2. Dữ liệu được xử lý", "Ứng dụng có thể xử lý dữ liệu vận hành của thiết bị BMS như điện áp, dòng điện, nhiệt độ, ngưỡng bảo vệ, trạng thái cân bằng và lỗi; dữ liệu cấu hình do người dùng lưu; và nhật ký vận hành cục bộ để hỗ trợ khắc phục sự cố. Các dữ liệu này mặc định lưu trên thiết bị của người dùng."],
-      ["3. Quyền Bluetooth, vị trí và USB", "Bluetooth chỉ dùng để quét, ghép đôi, kết nối và giao tiếp với bo mạch bảo vệ BMS. Trên Android 11 trở xuống, quyền vị trí có thể được hệ thống yêu cầu cho quét BLE, nhưng ứng dụng không ghi lại hoặc tải lên vị trí thực tế. Nếu hỗ trợ USB hoặc cổng nối tiếp, quyền liên quan chỉ dùng cho giao tiếp cục bộ với thiết bị."],
-      ["4. Mục đích sử dụng", "Dữ liệu chỉ được dùng để kết nối thiết bị BMS, hiển thị trạng thái pin, đọc hoặc cấu hình thông số BMS, cải thiện ổn định giao tiếp và hỗ trợ gỡ lỗi tại chỗ. Dữ liệu không được dùng cho quảng cáo, phân tích thương mại, bán dữ liệu hoặc chia sẻ với bên thứ ba."],
-      ["5. Lưu trữ, xóa và bảo mật", "Dữ liệu vận hành và cấu hình mặc định được lưu trong môi trường cục bộ của thiết bị. Người dùng có thể xóa dữ liệu trong ứng dụng hoặc trong cài đặt hệ thống. Khi gỡ cài đặt, hệ điều hành thường xóa bộ nhớ đệm và dữ liệu cục bộ của ứng dụng."],
-      ["6. SDK bên thứ ba", "Phiên bản hiện tại không tích hợp SDK quảng cáo, thống kê, theo dõi, thanh toán, bản đồ, lưu trữ đám mây hoặc phân tích người dùng. Nếu phiên bản tương lai tích hợp dịch vụ bên thứ ba, chính sách này sẽ được cập nhật trước khi sử dụng."],
-      ["7. Trẻ em và quyền của người dùng", "Ứng dụng là công cụ chuyên nghiệp cho BMS, không hướng đến trẻ em. Người dùng có thể xem, xóa dữ liệu cục bộ, ngừng sử dụng ứng dụng hoặc liên hệ với chúng tôi về vấn đề quyền riêng tư và an toàn dữ liệu."],
-      ["8. Liên hệ", `Công ty: ${company.legalNameVi}. Email: ${company.email}. Điện thoại: ${company.phone}. Địa chỉ: ${company.address}.`],
-    ],
-  },
-  en: {
-    title: "Privacy Policy",
-    subtitle: "Applies to the DJ ELECTRONICS website and the BMS Protection Board Manager app.",
-    updated: "Last Updated: July 24, 2026 | Effective Date: July 24, 2026",
-    sections: [
-      ["1. Data Processing Principle", "The app is designed for local operation: local device connection, local data viewing, and local storage. It does not actively collect personally identifiable information, upload user data to servers, or use data for advertising, tracking, or profiling."],
-      ["2. Data Processed", "The app may process BMS device operating data such as voltage, current, temperature, protection thresholds, balancing status, and fault status; user-saved configuration data; and local operation logs for troubleshooting. These data are stored locally on the user's device by default."],
-      ["3. Bluetooth, Location, and USB Permissions", "Bluetooth is used only to scan, pair, connect, and communicate with BMS protection boards. On Android 11 and earlier, location permission may be required by the system for BLE scanning, but the app does not record or upload actual location. If USB or serial connection is supported, related permissions are used only for local device communication."],
-      ["4. Purpose of Use", "Data is used only to connect BMS devices, display battery status, read or configure BMS parameters, improve communication stability, and support local debugging. It is not used for advertising, commercial analytics, data sale, or third-party sharing."],
-      ["5. Storage, Deletion, and Security", "Operation and configuration data are stored locally by default. Users can delete data in the app or through system settings. When the app is uninstalled, the operating system usually removes app cache and local data."],
-      ["6. Third-Party SDKs", "The current version does not integrate advertising, analytics, tracking, payment, map, cloud storage, or user analysis SDKs. If future versions integrate third-party services, this policy will be updated before use."],
-      ["7. Children and User Rights", "The app is a professional BMS tool and is not directed to children. Users may view and delete local data, stop using the app, or contact us about privacy and data security questions."],
-      ["8. Contact", `Company: ${company.legalNameVi}. Email: ${company.email}. Phone: ${company.phone}. Address: ${company.address}.`],
-    ],
-  },
-  zh: {
-    title: "隐私政策",
-    subtitle: "适用于 DJ ELECTRONICS 官网及 BMS Protection Board Manager 应用。",
-    updated: "更新日期：2026年07月24日 | 生效日期：2026年07月24日",
-    sections: [
-      ["1. 数据处理原则", "应用采用本地运行、本地连接、本地保存的设计。应用不主动收集可识别个人身份的信息，不将用户数据上传至服务器，也不用于广告、追踪或用户画像分析。"],
-      ["2. 处理的数据", "应用可能在本地处理 BMS 设备运行数据，例如电压、电流、温度、保护阈值、均衡状态和故障状态；用户保存的配置数据；以及用于故障排查的本地运行日志。这些数据默认保存在用户设备本地。"],
-      ["3. 蓝牙、位置和 USB 权限", "蓝牙权限仅用于扫描、配对、连接和通信 BMS 保护板。Android 11 及以下系统可能要求位置权限作为 BLE 扫描前置条件，但应用不会记录或上传实际地理位置。如支持 USB 或串口连接，相关权限仅用于本地设备通信。"],
-      ["4. 使用目的", "数据仅用于连接 BMS 设备、显示电池状态、读取或配置 BMS 参数、提升通信稳定性和支持本地调试。不会用于广告营销、商业分析、数据出售或第三方共享。"],
-      ["5. 存储、删除与安全", "运行数据和配置数据默认存储在用户设备本地。用户可在应用内或系统设置中删除数据。卸载应用后，系统通常会删除应用缓存和本地数据。"],
-      ["6. 第三方 SDK", "当前版本不集成广告、统计、追踪、支付、地图、云存储或用户分析 SDK。若未来版本接入第三方服务，我们会在使用前更新本政策。"],
-      ["7. 儿童与用户权利", "本应用是面向 BMS 保护板的专业工具，不面向儿童。用户可以查看和删除本地数据、停止使用应用，或就隐私和数据安全问题联系我们。"],
-      ["8. 联系方式", `公司：${company.legalNameVi}。邮箱：${company.email}。电话：${company.phone}。地址：${company.address}。`],
-    ],
-  },
-};
+const languages = ["vi", "en", "zh"];
 
 let state = {
   lang: localStorage.getItem("dj-lang") || "vi",
@@ -412,12 +15,47 @@ function normalizeRoute(route) {
   return routes.includes(route) ? route : "home";
 }
 
-function t() {
-  return copy[state.lang];
+async function loadJson(path) {
+  const response = await fetch(path, { cache: "no-cache" });
+  if (!response.ok) {
+    throw new Error(`Failed to load ${path}: ${response.status}`);
+  }
+  return response.json();
 }
 
-function card(item, index, images = productImages) {
-  const imageSet = Array.isArray(images) && typeof images[0] === "string" ? images : productImages;
+async function loadContent() {
+  const [site, vi, en, zh, privacyVi, privacyEn, privacyZh] = await Promise.all([
+    loadJson("./content/site.json"),
+    loadJson("./content/pages/vi.json"),
+    loadJson("./content/pages/en.json"),
+    loadJson("./content/pages/zh.json"),
+    loadJson("./content/privacy/vi.json"),
+    loadJson("./content/privacy/en.json"),
+    loadJson("./content/privacy/zh.json"),
+  ]);
+
+  siteConfig = site;
+  company = site.company;
+  copy = { vi, en, zh };
+  privacyPolicies = { vi: privacyVi, en: privacyEn, zh: privacyZh };
+}
+
+function getImages(key) {
+  const images = siteConfig?.assets?.[key] || [];
+  return images.map((item) => (typeof item === "string" ? item : item.image)).filter(Boolean);
+}
+
+function getAsset(key) {
+  return siteConfig?.assets?.[key] || "";
+}
+
+function t() {
+  return copy?.[state.lang];
+}
+
+function card(item, index, images = getImages("productImages")) {
+  const fallbackImages = getImages("productImages");
+  const imageSet = Array.isArray(images) && typeof images[0] === "string" ? images : fallbackImages;
   const image = imageSet[index % imageSet.length];
   const tags = [...(item.tags || []), ...(item.applications || []), ...(item.capabilities || [])]
     .map((tag) => `<span class="tag">${tag}</span>`)
@@ -449,7 +87,7 @@ function sectionHead(data) {
 
 function renderHome(data) {
   return `
-    <section class="hero">
+    <section class="hero" style="--hero-bg:url('${getAsset("heroBackground")}')">
       <div class="hero-inner">
         <div>
           <span class="eyebrow">${data.home.eyebrow}</span>
@@ -477,7 +115,7 @@ function renderHome(data) {
           </div>
           <p>${data.home.sectionsIntro}</p>
         </div>
-        <div class="grid">${data.home.highlights.map((item, index) => card(item, index, homeImages)).join("")}</div>
+        <div class="grid">${data.home.highlights.map((item, index) => card(item, index, getImages("homeImages"))).join("")}</div>
       </div>
     </section>
     ${renderContactBand(data)}
@@ -506,13 +144,13 @@ function renderManufacturing(data) {
           <p>${data.manufacturing.splitText}</p>
           <a class="primary-btn" href="#contact">${data.cta.contact}</a>
         </div>
-        <div class="split-media" style="background-image:url('https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=1200&q=82')"></div>
+        <div class="split-media" style="background-image:url('${getAsset("manufacturingSplit")}')"></div>
       </div>
     </section>
     <section class="section alt">
       <div class="section-inner">
         ${sectionHead(data.manufacturing)}
-        <div class="grid">${data.manufacturing.capabilities.map((item, index) => card(item, index, manufacturingImages)).join("")}</div>
+        <div class="grid">${data.manufacturing.capabilities.map((item, index) => card(item, index, getImages("manufacturingImages"))).join("")}</div>
       </div>
     </section>
   `;
@@ -523,12 +161,12 @@ function renderOem(data) {
     <section class="section dark">
       <div class="section-inner">
         ${sectionHead(data.oem)}
-        <div class="grid">${data.oem.modes.map((item, index) => card(item, index, oemImages)).join("")}</div>
+        <div class="grid">${data.oem.modes.map((item, index) => card(item, index, getImages("oemImages"))).join("")}</div>
       </div>
     </section>
     <section class="section">
       <div class="section-inner split">
-        <div class="split-media" style="background-image:url('https://images.unsplash.com/photo-1581093806997-124204d9fa9d?auto=format&fit=crop&w=1200&q=82')"></div>
+        <div class="split-media" style="background-image:url('${getAsset("oemSplit")}')"></div>
         <div class="split-copy">
           <h2>${data.oem.processTitle}</h2>
           <div class="process-list">
@@ -550,7 +188,7 @@ function renderAbout(data) {
           <p>${data.about.intro}</p>
           <p>${data.about.body}</p>
         </div>
-        <div class="split-media" style="background-image:url('./assets/brand/about-main.jpg')"></div>
+        <div class="split-media" style="background-image:url('${getAsset("aboutMain")}')"></div>
       </div>
     </section>
     <section class="section alt">
@@ -616,7 +254,7 @@ function renderContactBand(data) {
   return `
     <section class="section home-contact-flow">
       <div class="section-inner">
-        <div class="contact-band">
+        <div class="contact-band" style="background-image:linear-gradient(135deg, rgba(6, 31, 47, 0.94), rgba(17, 107, 126, 0.82), rgba(48, 166, 121, 0.76)), url('${getAsset("contactBand")}')">
           <div class="prism-layer" aria-hidden="true">
             <span class="prism-core"></span>
             <span class="prism-ray prism-ray-a"></span>
@@ -637,6 +275,10 @@ function render() {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
   document.body.dataset.currentRoute = state.route;
   document.title = data.metaTitle;
+  const logo = document.querySelector(".brand-mark img");
+  if (logo && getAsset("logo")) {
+    logo.src = getAsset("logo");
+  }
   document.querySelector(".header-cta").textContent = data.cta.contact;
   document.querySelector("#site-footer").innerHTML = renderFooter(data);
 
@@ -664,6 +306,7 @@ function render() {
 }
 
 window.addEventListener("hashchange", () => {
+  if (!copy) return;
   state.route = normalizeRoute(window.location.hash.replace("#", ""));
   document.querySelector(".site-header").dataset.open = "false";
   document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
@@ -672,6 +315,7 @@ window.addEventListener("hashchange", () => {
 
 document.querySelectorAll("[data-lang]").forEach((button) => {
   button.addEventListener("click", () => {
+    if (!copy) return;
     state.lang = button.dataset.lang;
     localStorage.setItem("dj-lang", state.lang);
     render();
@@ -702,8 +346,41 @@ window.addEventListener("scroll", () => {
   document.querySelector(".site-header").dataset.elevated = String(window.scrollY > 8);
 });
 
-if (!window.location.hash) {
-  window.location.hash = "home";
-} else {
-  render();
+function renderLoading() {
+  document.querySelector("#app").innerHTML = `
+    <section class="loading-state">
+      <div>
+        <h1>Loading website content</h1>
+        <p>Please wait while the site content is loaded.</p>
+      </div>
+    </section>
+  `;
 }
+
+function renderError(error) {
+  document.querySelector("#app").innerHTML = `
+    <section class="error-state">
+      <div>
+        <h1>Website content could not be loaded</h1>
+        <p>${error.message}</p>
+      </div>
+    </section>
+  `;
+}
+
+async function init() {
+  renderLoading();
+  try {
+    await loadContent();
+    if (!window.location.hash) {
+      window.location.hash = "home";
+      return;
+    }
+    render();
+  } catch (error) {
+    console.error(error);
+    renderError(error);
+  }
+}
+
+init();

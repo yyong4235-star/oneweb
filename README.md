@@ -1,29 +1,61 @@
-# DJ ELECTRONICS Static Website
+# DJ ELECTRONICS Website
 
-A static multilingual company website for CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ / DJ ELECTRONICS CO., LTD.
+Static multilingual company website for `CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ DJ / DJ ELECTRONICS CO., LTD`.
 
-## Preview
+The site supports Vietnamese, English, and Chinese. Vietnamese is the default language.
 
-Run a local static server from this folder:
+## Local Preview
+
+This version loads content from JSON files, so preview it through a local server instead of opening `index.html` directly.
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Then open:
+Open:
 
 ```text
 http://localhost:4173/
+http://localhost:4173/admin/
 ```
 
 ## Structure
 
-- `index.html` contains the page shell and navigation.
-- `styles.css` contains all responsive visual styling.
-- `script.js` contains the Vietnamese, English, and Chinese content plus hash-based page routing.
+- `index.html`: static page shell.
+- `styles.css`: responsive visual styling.
+- `script.js`: hash routing, language switching, and rendering.
+- `content/`: editable site content in JSON.
+- `admin/`: Decap CMS admin entry and configuration.
+- `assets/`: website images and CMS upload folder.
+- `docs/部署说明.md`: Netlify deployment and CMS login guide.
 
-The default language is Vietnamese. Use the `VI / EN / 中文` switcher in the header to change language.
+## CMS
+
+The admin panel is built with Decap CMS and is intended for Netlify Identity + Git Gateway.
+
+Online admin URL after deployment:
+
+```text
+https://your-domain/admin/
+```
+
+CMS uploads new images to:
+
+```text
+assets/cms/
+```
 
 ## Deployment
 
-This site has no build step. Upload `index.html`, `styles.css`, and `script.js` to any static host such as Vercel, Netlify, Cloudflare Pages, or a normal web server.
+No build step is required. Deploy the repository root to Netlify.
+
+Netlify settings:
+
+- Build command: empty
+- Publish directory: repository root
+
+Then enable:
+
+- Netlify Identity
+- Invite only registration
+- Git Gateway

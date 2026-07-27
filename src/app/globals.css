@@ -1,0 +1,513 @@
+@import "tailwindcss";
+
+:root {
+  /* 深色未来科技基调 */
+  --background: #060d14;
+  --background-elevated: #0a1622;
+  --foreground: #e8f4f0;
+  --muted: #8fa6b2;
+  --accent: #5eead4;
+  --accent-strong: #2dd4bf;
+  --accent-blue: #38bdf8;
+  --line: rgba(94, 234, 212, 0.14);
+  --line-soft: rgba(148, 197, 210, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #5eead4;
+  color: #041016;
+}
+
+/* 全站发光滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050a10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#155e57, #0b3b39);
+  border-radius: 999px;
+  border: 2px solid #050a10;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#2dd4bf, #0f766e);
+}
+
+/* ============ 设计系统工具类 ============ */
+
+/* 发光玻璃卡片 */
+.glass-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(18, 34, 48, 0.72), rgba(9, 18, 28, 0.55));
+  backdrop-filter: blur(14px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* 顶部发光描边高光 */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(94, 234, 212, 0.4), transparent 42%, transparent 60%, rgba(56, 189, 248, 0.28));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* 参考发光功能卡边框：模糊光晕 + 渐变 border-box */
+.glow-feature-card {
+  --feature-gradient: linear-gradient(137deg, #5eead4 0%, #7dd3fc 45%, #06b6d4 100%);
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+  border: 8px solid transparent;
+  border-radius: 40px;
+  background: linear-gradient(#1a1a1c, #1a1a1c) padding-box, var(--feature-gradient) border-box;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.glow-feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 40px;
+  background: var(--feature-gradient);
+  filter: blur(45px);
+  opacity: 0.46;
+  pointer-events: none;
+}
+
+.glow-feature-card--intro {
+  --feature-gradient: linear-gradient(137deg, #5eead4 0%, #7dd3fc 45%, #14b8a6 100%);
+  background: linear-gradient(160deg, rgba(18, 34, 48, 0.88), rgba(9, 18, 28, 0.78)) padding-box, var(--feature-gradient) border-box;
+}
+
+/* 强调色描边卡片（无玻璃模糊，用于大量并排卡片，性能更好） */
+.tech-card {
+  position: relative;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: linear-gradient(165deg, rgba(15, 29, 42, 0.9), rgba(8, 16, 25, 0.9));
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(94, 234, 212, 0.35);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(94, 234, 212, 0.12);
+}
+
+/* 小标签（eyebrow / chip） */
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(94, 234, 212, 0.24);
+  border-radius: 999px;
+  background: rgba(94, 234, 212, 0.06);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  color: #a7f3d0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* 发光按钮 */
+.btn-glow {
+  position: relative;
+  box-shadow: 0 12px 40px rgba(45, 212, 191, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* 文本发光 */
+.text-glow {
+  text-shadow: 0 0 24px rgba(94, 234, 212, 0.35);
+}
+
+/* ============ 背景装饰 ============ */
+
+.electric-border {
+  --electric-light-color: oklch(from var(--electric-border-color) l c h);
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+  border-radius: inherit;
+}
+
+.eb-canvas-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.eb-canvas {
+  display: block;
+}
+
+.eb-content {
+  position: relative;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.eb-layers {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.eb-glow-1,
+.eb-glow-2,
+.eb-background-glow {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.eb-glow-1 {
+  border: 1px solid oklch(from var(--electric-border-color) l c h / 0.5);
+  filter: blur(1px);
+}
+
+.eb-glow-2 {
+  border: 1px solid var(--electric-light-color);
+  filter: blur(4px);
+  opacity: 0.72;
+}
+
+.eb-background-glow {
+  z-index: -1;
+  background: linear-gradient(-30deg, var(--electric-light-color), transparent 45%, var(--electric-border-color));
+  filter: blur(28px);
+  opacity: 0.24;
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eb-canvas-container {
+    display: none;
+  }
+}
+
+.cursor-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cursor-grid__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.animated-gradient-text {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-radius: 8px;
+  vertical-align: top;
+}
+
+.animated-gradient-text.with-border {
+  padding: 0.35rem 0.75rem;
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.gradient-overlay::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-radius: inherit;
+  background-color: #050d14;
+  transform: translate(-50%, -50%);
+}
+
+.text-content {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  max-width: 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 精细网格背景 */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(94, 234, 212, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.06) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black, transparent 78%);
+}
+
+/* 微光扫描线 */
+.scanlines {
+  background: repeating-linear-gradient(to bottom, rgba(94, 234, 212, 0.04) 0 1px, transparent 1px 6px);
+  mix-blend-mode: screen;
+  opacity: 0.4;
+}
+
+/* 极光光晕 */
+.aurora-field {
+  position: absolute;
+  inset: -24%;
+  background:
+    radial-gradient(circle at 14% 30%, rgba(45, 212, 191, 0.4), transparent 30%),
+    radial-gradient(circle at 84% 16%, rgba(56, 189, 248, 0.32), transparent 32%),
+    radial-gradient(circle at 60% 82%, rgba(94, 234, 212, 0.22), transparent 36%);
+  filter: blur(26px);
+  opacity: 0.9;
+}
+
+/* 电路板纹理 */
+.circuit-board {
+  background-image:
+    linear-gradient(rgba(94, 234, 212, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 18% 22%, rgba(94, 234, 212, 0.22) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 44%, rgba(56, 189, 248, 0.2) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 76%, rgba(94, 234, 212, 0.18) 0 2px, transparent 3px);
+  background-size: 40px 40px, 40px 40px, 220px 220px, 260px 260px, 240px 240px;
+}
+
+/* 聚光卡片（跟随鼠标高光） */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    460px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(94, 234, 212, 0.16),
+    transparent 44%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+  z-index: 1;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* ============ 首屏能量控制台 ============ */
+
+.energy-console {
+  position: relative;
+}
+
+.energy-console::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  border-radius: 16px;
+  background: linear-gradient(120deg, transparent, rgba(94, 234, 212, 0.3), transparent 55%);
+  opacity: 0.6;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  padding: 1px;
+}
+
+.energy-map {
+  position: absolute;
+  inset: 72px 20px 82px;
+}
+
+.energy-map::before,
+.energy-map::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(94, 234, 212, 0.16);
+}
+
+.energy-map::before {
+  inset: 10% 8%;
+}
+
+.energy-map::after {
+  inset: 24% 16%;
+  transform: rotate(-18deg);
+}
+
+.node {
+  position: absolute;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #7df2b8;
+  box-shadow: 0 0 0 6px rgba(125, 242, 184, 0.12), 0 0 26px rgba(125, 242, 184, 0.75);
+  animation: nodePulse 3s ease-in-out infinite;
+}
+
+.node-a { left: 14%; top: 38%; }
+.node-b { left: 46%; top: 18%; animation-delay: 0.5s; }
+.node-c { right: 18%; top: 46%; animation-delay: 1s; }
+.node-d { left: 52%; bottom: 14%; animation-delay: 1.5s; }
+
+.flow {
+  position: absolute;
+  height: 2px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, transparent, rgba(125, 242, 184, 0.72), transparent);
+  opacity: 0.74;
+}
+
+.flow-a { left: 18%; top: 44%; width: 62%; transform: rotate(-16deg); }
+.flow-b { left: 22%; top: 58%; width: 58%; transform: rotate(16deg); }
+.flow-c { left: 34%; top: 28%; width: 44%; transform: rotate(32deg); }
+
+.mini-solar {
+  position: absolute;
+  inset: 46px 16px 16px;
+  transform: perspective(420px) rotateX(58deg) rotateZ(-18deg);
+  background:
+    linear-gradient(90deg, rgba(94, 234, 212, 0.16) 1px, transparent 1px),
+    linear-gradient(rgba(94, 234, 212, 0.14) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(10, 56, 78, 0.95), rgba(16, 120, 114, 0.45));
+  background-size: 34px 34px, 34px 34px, auto;
+  border: 1px solid rgba(94, 234, 212, 0.24);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ============ 合作流程时间轴 ============ */
+
+.process-rail {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  padding-left: 2.25rem;
+}
+
+.process-rail::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  background: linear-gradient(#2dd4bf, rgba(45, 212, 191, 0.05));
+}
+
+.process-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid rgba(94, 234, 212, 0.12);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(16, 29, 43, 0.8), rgba(8, 16, 25, 0.85));
+  padding: 1rem 1.25rem;
+  color: #e2e8f0;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+}
+
+.process-step span {
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(94, 234, 212, 0.12);
+  color: #a7f3d0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 0 24px rgba(45, 212, 191, 0.18);
+}
+
+.process-step p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}

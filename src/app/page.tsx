@@ -198,7 +198,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           </FadeContent>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {scenarios.map((item) => {
-              const iconMap = { Home, Building2, Radio, Warehouse };
+              const iconMap = { Home: HomeIcon, Building2, Radio, Warehouse };
               const Icon = iconMap[item.iconName as keyof typeof iconMap];
               return (
                 <FadeContent key={item.key}>

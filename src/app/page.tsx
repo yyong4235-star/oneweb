@@ -11,7 +11,7 @@ import { MagnetButton } from "@/components/effects/MagnetButton";
 import { SpotlightCard } from "@/components/effects/SpotlightCard";
 import { Container, getLang, Section, SiteShell } from "@/components/layout";
 import { InquiryForm } from "@/components/InquiryForm";
-import { advantages, company, home, intro, labels, process, products, seo } from "@/content/site";
+import { advantages, company, home, intro, labels, news, process, products, seo } from "@/content/site";
 
 export const metadata: Metadata = {
   title: seo.zh.title,
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
 };
 
 const productIcons = [BatteryCharging, SunMedium, Boxes, Globe2];
-const productImages = ["/images/site/ai-commercial-storage.jpg", "/images/site/ai-solar-storage-trade.jpg", "/images/site/ai-lithium-battery.jpg", "/images/site/ai-port-logistics.jpg"];
+const productImages = ["/images/site/commercial-storage.jpg", "/images/site/solar-storage-trade.jpg", "/images/site/lithium-battery.jpg", "/images/site/port-logistics.jpg"];
 const featureCards = [
   {
     titleZh: "光伏发电",
     titleEn: "Solar Power",
     bodyZh: "屋顶、园区与项目型光伏产品采购，覆盖组件、逆变与配套供应链。",
     bodyEn: "PV sourcing for rooftops, parks and projects, covering modules, inverters and accessories.",
-    image: "/images/site/ai-feature-solar-generation.jpg",
+    image: "/images/site/feature-solar-generation.jpg",
     gradient: "linear-gradient(137deg, #5EEAD4 0%, #7DD3FC 45%, #22C55E 100%)",
   },
   {
@@ -40,7 +40,7 @@ const featureCards = [
     titleEn: "Home Storage",
     bodyZh: "面向家庭备电、离网用电与光伏配套的家用储能系统采购服务。",
     bodyEn: "Home storage sourcing for backup power, off-grid usage and solar energy systems.",
-    image: "/images/site/ai-feature-home-storage.jpg",
+    image: "/images/site/feature-home-storage.jpg",
     gradient: "linear-gradient(137deg, #FFFFFF 0%, #7DD3FC 45%, #06B6D4 100%)",
   },
   {
@@ -48,7 +48,7 @@ const featureCards = [
     titleEn: "C&I Storage",
     bodyZh: "工商业储能柜、集装箱储能与项目配套设备，适配批量采购。",
     bodyEn: "C&I cabinets, containerized storage and project equipment for batch procurement.",
-    image: "/images/site/ai-feature-industrial-storage.jpg",
+    image: "/images/site/feature-industrial-storage.jpg",
     gradient: "linear-gradient(137deg, #38BDF8 0%, #A7F3D0 45%, #14B8A6 100%)",
   },
 ];
@@ -113,7 +113,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
               <div>
                 <ElectricBorder className="rounded-2xl" color="#5eead4" speed={0.7} chaos={0.06} borderRadius={16}>
                   <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-emerald-200/15 bg-[#062032] p-5 sm:min-h-[420px]">
-                    <Image src="/images/site/ai-hero-energy-trade.jpg" alt={lang === "zh" ? "真实风格储能柜与光伏贸易场景" : "Photorealistic energy storage and solar trade scene"} fill priority className="object-cover opacity-70" sizes="(min-width: 1024px) 520px, 100vw" />
+                    <Image src="/images/site/hero-energy-trade.jpg" alt={lang === "zh" ? "储能柜与光伏设备实景" : "Energy storage and solar equipment"} fill priority className="object-cover opacity-70" sizes="(min-width: 1024px) 520px, 100vw" />
                     <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(5,15,24,0.96)_0%,rgba(6,32,50,0.58)_45%,rgba(6,32,50,0.15)_100%)]" aria-hidden="true" />
                     <div className="absolute inset-0 opacity-70 circuit-board" aria-hidden="true" />
                     <div className="relative flex items-center justify-between">
@@ -147,6 +147,23 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           </div>
         </Container>
       </section>
+
+      {/* ============ 信任数据条 ============ */}
+      <div className="border-y border-white/8 bg-[#060d14]">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+          {[
+            { value: "4", label: lang === "zh" ? "核心产品品类" : "Core product lines" },
+            { value: "7", label: lang === "zh" ? "贸易服务项目" : "Trade services" },
+            { value: lang === "zh" ? "北海海关" : "Beihai Customs", label: lang === "zh" ? "属地海关管辖" : "Customs jurisdiction" },
+            { value: "D-U-N-S", label: lang === "zh" ? "邓白氏国际认证" : "Dun & Bradstreet certified" },
+          ].map((item) => (
+            <div key={item.label} className="flex flex-col items-center gap-1 px-4 py-5 text-center sm:px-6">
+              <span className="text-2xl font-semibold text-emerald-300 sm:text-3xl">{item.value}</span>
+              <span className="text-xs text-slate-400">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ============ 企业速览 ============ */}
       <Section className="relative overflow-hidden bg-[#060d14]">
@@ -244,7 +261,48 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
         </Container>
       </Section>
 
+      {/* ============ 资讯预览 ============ */}
       <Section className="relative overflow-hidden bg-[#060d14]">
+        <div className="absolute inset-0 opacity-25 grid-bg" aria-hidden="true" />
+        <Container className="relative">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold tracking-[0.18em] text-emerald-300">INSIGHTS</p>
+              <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+                {lang === "zh" ? "行业资讯" : "Industry Insights"}
+              </h2>
+            </div>
+            <Link
+              href={`/news?lang=${lang}`}
+              className="shrink-0 inline-flex items-center gap-1.5 text-sm text-emerald-300 transition hover:text-emerald-200"
+            >
+              {lang === "zh" ? "全部资讯" : "All insights"} <ArrowRight size={14} />
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {news.map((item) => (
+              <FadeContent key={item.titleZh}>
+                <div className="tech-card group flex h-full flex-col p-6">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-0.5 text-xs font-medium text-emerald-200">
+                      {lang === "zh" ? item.categoryZh : item.categoryEn}
+                    </span>
+                    <time className="text-xs text-slate-500">{item.date}</time>
+                  </div>
+                  <p className="mt-4 flex-1 text-sm font-medium leading-7 text-slate-200 group-hover:text-white transition">
+                    {lang === "zh" ? item.titleZh : item.titleEn}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-1 text-xs text-emerald-400 transition group-hover:gap-2">
+                    {lang === "zh" ? "阅读" : "Read"} <ArrowRight size={12} />
+                  </span>
+                </div>
+              </FadeContent>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="relative overflow-hidden bg-[#050b12]">
         <Container className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div className="relative overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[#081420] p-8 text-white">
             <div className="absolute inset-0 circuit-board opacity-40" aria-hidden="true" />

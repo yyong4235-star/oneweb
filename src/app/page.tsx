@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, BatteryCharging, Boxes, FileCheck2, Globe2, Radar, Route, ShieldCheck, SunMedium, Zap } from "lucide-react";
+import { ArrowRight, BadgeCheck, BatteryCharging, Boxes, Building2, FileCheck2, FileDown, Globe2, HelpCircle, Home as HomeIcon, MessageCircle, Radar, Radio, Route, ShieldCheck, SunMedium, Truck, Warehouse, Zap } from "lucide-react";
 import { AuroraField } from "@/components/effects/AuroraField";
 import { CountUp } from "@/components/effects/CountUp";
 import { ElectricBorder } from "@/components/effects/ElectricBorder";
@@ -11,7 +11,7 @@ import { MagnetButton } from "@/components/effects/MagnetButton";
 import { SpotlightCard } from "@/components/effects/SpotlightCard";
 import { Container, getLang, Section, SiteShell } from "@/components/layout";
 import { InquiryForm } from "@/components/InquiryForm";
-import { advantages, company, home, intro, labels, news, process, products, seo } from "@/content/site";
+import { advantages, company, home, intro, labels, news, processDetails, products, scenarios, seo, serviceSupport, targetMarkets } from "@/content/site";
 
 export const metadata: Metadata = {
   title: seo.zh.title,
@@ -183,7 +183,46 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
       </Section>
 
       {/* ============ 核心产品矩阵 ============ */}
+      {/* ============ 应用场景 ============ */}
       <Section className="relative overflow-hidden bg-[#050b12]">
+        <div className="absolute inset-0 opacity-30 circuit-board" aria-hidden="true" />
+        <Container className="relative">
+          <FadeContent className="max-w-3xl">
+            <p className="text-sm font-semibold tracking-[0.18em] text-emerald-300">SCENARIOS</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+              {lang === "zh" ? "适配采购场景" : "Built for Your Procurement Scenario"}
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-400">
+              {lang === "zh" ? "不同规模、不同用途的采购需求，找到最匹配的产品与贸易方案。" : "Match your procurement scale and use case to the right products and trade plan."}
+            </p>
+          </FadeContent>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {scenarios.map((item) => {
+              const iconMap = { Home, Building2, Radio, Warehouse };
+              const Icon = iconMap[item.iconName as keyof typeof iconMap];
+              return (
+                <FadeContent key={item.key}>
+                  <div className="tech-card group flex h-full flex-col p-6">
+                    <span className="grid size-11 place-items-center rounded-xl border border-emerald-300/25 bg-emerald-300/10 text-emerald-200">
+                      <Icon size={20} />
+                    </span>
+                    <h3 className="mt-5 text-lg font-semibold text-white">{lang === "zh" ? item.titleZh : item.titleEn}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-7 text-slate-400">{lang === "zh" ? item.descZh : item.descEn}</p>
+                    <div className="mt-5 flex flex-wrap gap-2 border-t border-white/8 pt-4">
+                      {(lang === "zh" ? item.tagsZh : item.tagsEn).map((tag) => (
+                        <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs text-slate-400">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </FadeContent>
+              );
+            })}
+          </div>
+        </Container>
+      </Section>
+
+      {/* ============ 核心产品矩阵 ============ */}
+      <Section className="relative overflow-hidden bg-[#060d14]">
         <div className="absolute inset-0 opacity-40 circuit-board" aria-hidden="true" />
         <Container className="relative">
           <FadeContent className="max-w-3xl">
@@ -240,7 +279,31 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
         </Container>
       </Section>
 
+      {/* ============ 目标市场 ============ */}
       <Section className="relative overflow-hidden bg-[#050b12]">
+        <div className="absolute inset-0 opacity-30 grid-bg" aria-hidden="true" />
+        <Container className="relative">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <p className="text-sm font-semibold tracking-[0.18em] text-emerald-300">TARGET MARKETS</p>
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+              {lang === "zh" ? "覆盖全球重点采购市场" : "Serving Key Global Procurement Markets"}
+            </h2>
+            <p className="max-w-2xl text-base leading-8 text-slate-400">
+              {lang === "zh" ? "依托北海港口区位优势，为东南亚、中东、非洲等重点新能源市场的采购商提供合规贸易服务。" : "Leveraging Beihai port access to serve buyers in Southeast Asia, the Middle East, Africa and beyond."}
+            </p>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            {targetMarkets.map((market) => (
+              <div key={market.zh} className="flex items-center gap-2.5 rounded-full border border-white/12 bg-white/5 px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-emerald-300/40 hover:bg-emerald-300/8 hover:text-emerald-200">
+                <span>{market.flagEmoji}</span>
+                <span>{lang === "zh" ? market.zh : market.en}</span>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="relative overflow-hidden bg-[#060d14]">
         <div className="absolute inset-0 opacity-30 grid-bg" aria-hidden="true" />
         <Container className="relative">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
@@ -250,13 +313,50 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
               <p className="mt-4 text-base leading-8 text-slate-400">{lang === "zh" ? "从询盘到通关物流，节点清晰、资料透明、沟通高效。" : "From inquiry to customs and logistics, milestones remain clear, transparent and efficient."}</p>
             </div>
             <div className="process-rail">
-              {process.map((item, index) => (
+              {processDetails.map((item, index) => (
                 <div className="process-step" key={item.zh}>
                   <span>0{index + 1}</span>
                   <p>{lang === "zh" ? item.zh : item.en}</p>
+                  <p className="mt-1 text-xs leading-5 text-slate-500">{lang === "zh" ? item.bodyZh : item.bodyEn}</p>
                 </div>
               ))}
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ============ 服务支持 ============ */}
+      <Section className="relative overflow-hidden bg-[#060d14]">
+        <div className="absolute inset-0 opacity-30 circuit-board" aria-hidden="true" />
+        <Container className="relative">
+          <FadeContent className="max-w-3xl">
+            <p className="text-sm font-semibold tracking-[0.18em] text-emerald-300">SERVICE SUPPORT</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+              {lang === "zh" ? "采购全程支持" : "Full Procurement Support"}
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-400">
+              {lang === "zh" ? "从选品咨询到清关物流，每个节点都有专人跟进，降低跨境采购的信息摩擦。" : "From product consultation to customs clearance, every step is followed up to reduce cross-border friction."}
+            </p>
+          </FadeContent>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {serviceSupport.map((item) => {
+              const iconMap = { MessageCircle, FileDown, HelpCircle, Truck };
+              const Icon = iconMap[item.iconName as keyof typeof iconMap];
+              return (
+                <FadeContent key={item.titleZh}>
+                  <Link href={`${item.href}?lang=${lang}`} className="tech-card group flex h-full flex-col p-6 transition hover:border-emerald-300/30">
+                    <span className="grid size-11 place-items-center rounded-xl border border-emerald-300/25 bg-emerald-300/10 text-emerald-200 transition group-hover:bg-emerald-300/18">
+                      <Icon size={20} />
+                    </span>
+                    <h3 className="mt-5 text-lg font-semibold text-white">{lang === "zh" ? item.titleZh : item.titleEn}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-7 text-slate-400">{lang === "zh" ? item.descZh : item.descEn}</p>
+                    <span className="mt-5 inline-flex items-center gap-1 text-xs text-emerald-400 transition group-hover:gap-2">
+                      {lang === "zh" ? "了解更多" : "Learn more"} <ArrowRight size={12} />
+                    </span>
+                  </Link>
+                </FadeContent>
+              );
+            })}
           </div>
         </Container>
       </Section>

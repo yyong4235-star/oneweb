@@ -163,4 +163,100 @@ export const news = [
   { categoryZh: "公司动态", categoryEn: "Company", titleZh: "北海蓝曜持续完善光伏、储能、锂电池产品贸易服务矩阵", titleEn: "Beihai Lanyao continues improving its solar, storage and lithium battery trade portfolio", date: "2026-07-01" },
 ];
 
+export const scenarios = [
+  {
+    key: "residential",
+    iconName: "Home",
+    titleZh: "家庭备电",
+    titleEn: "Home Backup Power",
+    descZh: "适配家用储能系统与光伏配套，满足家庭离网备电、削峰填谷与分布式自发自用需求。",
+    descEn: "Home storage and solar systems for backup power, self-consumption and off-grid use.",
+    tagsZh: ["家用储能系统", "阳台光伏", "户用逆变器"],
+    tagsEn: ["Home ESS", "Balcony PV", "Residential inverter"],
+  },
+  {
+    key: "commercial",
+    iconName: "Building2",
+    titleZh: "工商业储能",
+    titleEn: "C&I Energy Storage",
+    descZh: "工商业储能柜与集装箱储能系统，支持园区削峰填谷、需量管理与备用电源配置。",
+    descEn: "C&I cabinets and containerized storage for peak shaving, demand management and backup.",
+    tagsZh: ["工商业储能柜", "集装箱储能", "需量管理"],
+    tagsEn: ["C&I cabinet", "Container ESS", "Demand management"],
+  },
+  {
+    key: "offgrid",
+    iconName: "Radio",
+    titleZh: "离网与微网",
+    titleEn: "Off-Grid & Microgrid",
+    descZh: "面向无电或弱电网地区，提供光储一体离网解决方案的产品采购与贸易对接服务。",
+    descEn: "PV-storage off-grid solutions for areas with no or weak grid access.",
+    tagsZh: ["离网储能", "光储一体", "微网系统"],
+    tagsEn: ["Off-grid ESS", "PV-storage", "Microgrid"],
+  },
+  {
+    key: "project",
+    iconName: "Warehouse",
+    titleZh: "项目批量出口",
+    titleEn: "Project Bulk Export",
+    descZh: "大型光伏电站、储能项目整套设备采购与出口，依托北海海关优势推进全程合规贸易。",
+    descEn: "Bulk procurement and export for utility-scale PV and storage projects via Beihai Customs.",
+    tagsZh: ["批量采购", "设备出口", "EPC配套"],
+    tagsEn: ["Bulk sourcing", "Equipment export", "EPC support"],
+  },
+];
+
+export const targetMarkets = [
+  { zh: "东南亚", en: "Southeast Asia", flagEmoji: "🌏" },
+  { zh: "中东", en: "Middle East", flagEmoji: "🌍" },
+  { zh: "非洲", en: "Africa", flagEmoji: "🌍" },
+  { zh: "欧洲", en: "Europe", flagEmoji: "🌍" },
+  { zh: "南美", en: "South America", flagEmoji: "🌎" },
+  { zh: "南亚", en: "South Asia", flagEmoji: "🌏" },
+];
+
+export const serviceSupport = [
+  {
+    iconName: "MessageCircle",
+    titleZh: "售前咨询",
+    titleEn: "Pre-sale Consulting",
+    descZh: "根据采购规格、预算与目标市场，协助梳理最适合的产品选型与贸易方案。",
+    descEn: "Help you identify the right products and trade plan based on specs, budget and market.",
+    href: "/contact",
+  },
+  {
+    iconName: "FileDown",
+    titleZh: "规格资料",
+    titleEn: "Product Documents",
+    descZh: "提供主流品牌储能、光伏与电池产品规格书，支持采购前技术核对与方案评估。",
+    descEn: "Datasheets and specs for major brands to support pre-purchase technical evaluation.",
+    href: "/contact",
+  },
+  {
+    iconName: "HelpCircle",
+    titleZh: "贸易FAQ",
+    titleEn: "Trade FAQ",
+    descZh: "常见贸易条款、HS Code、原产地证明与通关资料问题解答，降低合规风险。",
+    descEn: "Answers on trade terms, HS codes, certificates of origin and customs documentation.",
+    href: "/services",
+  },
+  {
+    iconName: "Truck",
+    titleZh: "物流跟踪",
+    titleEn: "Logistics Support",
+    descZh: "订单确认后全程跟进发运节点、清关进度与到货情况，保持透明沟通。",
+    descEn: "Post-order tracking of shipment milestones, customs clearance and delivery status.",
+    href: "/contact",
+  },
+];
+
+export const processDetails = [
+  { zh: "需求沟通", en: "Requirement Review", bodyZh: "明确产品规格、数量、目标市场与交期要求", bodyEn: "Clarify specs, quantities, target market and delivery timeline" },
+  { zh: "产品选型", en: "Product Match", bodyZh: "匹配合适品牌与货源，提供选型建议", bodyEn: "Match suitable brands and supply sources with selection advice" },
+  { zh: "报价确认", en: "Quotation", bodyZh: "提供含运费、税费的完整贸易报价", bodyEn: "Provide complete trade quotation including freight and duties" },
+  { zh: "订单跟进", en: "Order Follow-up", bodyZh: "协调生产备货、核对资料、跟进进度", bodyEn: "Coordinate production, verify documents, follow up progress" },
+  { zh: "通关物流", en: "Customs & Logistics", bodyZh: "依托北海海关资质推进合规出口清关", bodyEn: "Compliant export clearance via Beihai Customs credentials" },
+  { zh: "售后沟通", en: "After-sales Support", bodyZh: "到货确认、问题处理与持续采购支持", bodyEn: "Delivery confirmation, issue handling and ongoing sourcing support" },
+];
+
 export const policyUpdated = "2026年07月26日";
